@@ -6,6 +6,8 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/tests.yml"><img src="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/tests.yml/badge.svg" alt="Tests"></a>
+  <a href="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/watch.yml"><img src="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/watch.yml/badge.svg" alt="Daily watch"></a>
   <img src="https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT">
   <img src="https://img.shields.io/badge/runs%20on-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white" alt="GitHub Actions">
@@ -108,7 +110,7 @@ Every false positive found becomes a regression test in [`tests/test_matcher.py`
 ## Quick start
 
 ```bash
-git clone https://github.com/<you>/maghreb-threat-watch
+git clone https://github.com/Raynskhiri/maghreb-threat-watch
 cd maghreb-threat-watch
 pip install -r requirements.txt
 
@@ -183,6 +185,6 @@ tests/           80+ tests, including real-world false positives
 
 ## Author
 
-Built by **[Rayen Skhiri](https://linkedin.com/in/rayen-skhiri)**, SOC Analyst L2/L3 and web application security engineer in Tunisia. CRTP. Questions, false positives or brands to add: open an issue.
+Built by **[Rayen Skhiri](https://github.com/Raynskhiri)** ([LinkedIn](https://linkedin.com/in/rayen-skhiri)), SOC Analyst L2/L3 and web application security engineer in Tunisia. CRTP. Questions, false positives or brands to add: open an issue.
 
 <sub>MIT licensed. Data sources keep their own terms: crt.sh, OpenPhish community feed, WhoisDS free list, abuse.ch URLhaus.</sub>

@@ -1,7 +1,7 @@
 // Maghreb Threat Watch hunt | generated 2026-10-22
 // 17 lookalike/phishing domains (medium and high, rolling 30 days)
 // Finds endpoints that resolved or connected to any of them, subdomains included.
-// Source: https://github.com/topics/maghreb-threat-watch
+// Source: https://github.com/Raynskhiri/maghreb-threat-watch
 config case_sensitive = false
 | dataset = xdr_data
 | filter event_type = ENUM.NETWORK
