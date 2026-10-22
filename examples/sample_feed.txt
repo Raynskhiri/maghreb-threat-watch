@@ -1,0 +1,46 @@
+# SYNTHETIC sample data for `python -m mtw demo`.
+# These are made-up examples of the patterns the tool detects. They are NOT
+# real observations and are not claims about any registered domain.
+
+# Classic brand + lure words on an abused TLD
+biat-secure-login.xyz
+https://espace-client-attijari.site/auth/index.php
+tunisietelecom-facture.online
+djezzy-bonus.shop
+
+# Real domain pasted into a fake host
+biat.com.tn.verify-account.xyz
+poste.tn.colis-suivi.xyz
+
+# Homoglyphs (Cyrillic letters) and leetspeak
+xn--bit-login-1yh.com
+xn--redoo-gift-dvia.com
+b1at-tn.com
+amenb4nk.net
+
+# Typosquats
+attijarlbank-login.com
+oredoo-recharge.xyz
+
+# Free hosting platforms
+https://flouci-pay.netlify.app/
+baridimob-dz.top
+
+# Short brand codes need context
+stb-tn-verification.com
+steg-facture-tn.com
+cnss-tn-remboursement.com
+cmi-paiement.com
+
+# Noise that must NOT be flagged
+www.biat.com.tn
+e-dinar.poste.tn
+posterflex.com
+sibiatex.online
+wafapartners.com
+laposte-livraison.com
+tunisiansabroad.com
+dinar-exchange.com
+sncf-connect-login.com
+bankofamerica-login.vercel.app
+stbcafe.com

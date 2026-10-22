@@ -1,0 +1,160 @@
+# Maghreb Threat Watch settings
+
+# Score thresholds (0 to 100). Anything below `low` is dropped.
+thresholds:
+  high: 70
+  medium: 45
+  low: 30
+
+# Only open a GitHub issue when a run finds new domains at or above this severity.
+alert_severity: high
+
+# How many days back to look in certificate transparency logs.
+lookback_days: 3
+
+# How long to remember a domain so it is not re-reported every day.
+state_retention_days: 120
+
+sources:
+  crtsh:
+    enabled: true
+    timeout: 90
+    pause_seconds: 4
+  openphish:
+    enabled: true
+    url: https://raw.githubusercontent.com/openphish/public_feed/refs/heads/main/feed.txt
+  whoisds:
+    enabled: true
+  urlhaus:
+    # Needs a free abuse.ch Auth-Key in the URLHAUS_AUTH_KEY environment variable.
+    # Skipped automatically when the key is missing.
+    enabled: true
+
+# Words phishing kits put next to a brand name. English, French and transliterated.
+lure_words:
+  - login
+  - signin
+  - logon
+  - secure
+  - security
+  - verify
+  - verification
+  - verif
+  - validate
+  - validation
+  - update
+  - confirm
+  - unlock
+  - suspend
+  - suspended
+  - account
+  - compte
+  - client
+  - clients
+  - espace
+  - espaceclient
+  - ebanking
+  - banking
+  - netbanking
+  - online
+  - enligne
+  - auth
+  - otp
+  - sms
+  - carte
+  - card
+  - paiement
+  - payment
+  - pay
+  - recharge
+  - colis
+  - suivi
+  - tracking
+  - track
+  - douane
+  - customs
+  - expedition
+  - envoi
+  - frais
+  - livraison
+  - delivery
+  - remboursement
+  - refund
+  - facture
+  - impots
+  - impot
+  - taxe
+  - amende
+  - fine
+  - bill
+  - billing
+  - prime
+  - cadeau
+  - gift
+  - bonus
+  - promo
+  - support
+  - help
+  - service
+  - services
+  - wallet
+  - portail
+  - portal
+  - connexion
+  - connect
+  - acces
+  - access
+  - mobile
+  - app
+  - web
+  - net
+  - info
+  - reward
+  - lottery
+  - gagnant
+
+# Country hints. A hint that matches the brand's country adds weight.
+country_hints:
+  TN: [tn, tun, tunisie, tunisia, tunisien, tunisienne, tunis, tounes]
+  MA: [ma, maroc, morocco, marocain, maghrib]
+  DZ: [dz, algerie, algeria, algerien, djazair]
+
+# Common words that sit one typo away from a brand keyword. Never treated as typosquats.
+typo_ignore: [dinar, dinars, sncf, tunisia, tunisian, poster, posted, orange, mobile, mobiles, bankofamerica]
+
+# Small affixes that attackers glue onto brand names (mybiat, biat24, ebiat).
+affixes: [my, e, m, i, go, the, new, now, 24, 365, x, pro, plus, direct, bank, banque, tn, ma, dz]
+
+# TLDs heavily abused for phishing (based on public abuse statistics).
+suspicious_tlds:
+  - xyz
+  - top
+  - shop
+  - online
+  - site
+  - icu
+  - click
+  - live
+  - buzz
+  - cfd
+  - sbs
+  - rest
+  - quest
+  - support
+  - info
+  - vip
+  - cyou
+  - store
+  - fun
+  - space
+  - monster
+  - lol
+  - work
+  - life
+  - today
+  - link
+  - tk
+  - ml
+  - ga
+  - cf
+  - gq

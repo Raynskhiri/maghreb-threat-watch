@@ -1,0 +1,348 @@
+# Brands monitored by Maghreb Threat Watch.
+#
+# Each brand has:
+#   id               short unique identifier
+#   name             display name
+#   country          TN, MA, DZ (used to match country hints like "tn", "tunisie")
+#   sector           bank, telecom, post, payments, government, utility, transport
+#   keywords         distinctive strings attackers put in lookalike domains
+#   weak_keywords    short or generic strings (e.g. "stb", "bna"). These only count
+#                    as an exact token and need extra context (a lure word or a
+#                    country hint) before anything is reported.
+#   official_domains legitimate domains. These and all their subdomains are never flagged.
+#
+# Official domains were checked against public DNS in Oct 2026. If you spot a
+# missing or wrong one, open a pull request.
+
+brands:
+  # ---------------------------------------------------------------- Tunisia: banks
+  - id: biat
+    name: BIAT
+    country: TN
+    sector: bank
+    keywords: [biat]
+    official_domains: [biat.com.tn]
+
+  - id: stb
+    name: STB (Societe Tunisienne de Banque)
+    country: TN
+    sector: bank
+    keywords: [stbbank, stbnet]
+    weak_keywords: [stb]
+    official_domains: [stb.com.tn]
+
+  - id: bna-tn
+    name: BNA (Banque Nationale Agricole)
+    country: TN
+    sector: bank
+    keywords: [bnanet, bnaonline]
+    weak_keywords: [bna]
+    official_domains: [bna.tn]
+
+  - id: attijari-tn
+    name: Attijari Bank Tunisie
+    country: TN
+    sector: bank
+    keywords: [attijaribank, attijari]
+    official_domains: [attijaribank.com.tn]
+
+  - id: amen
+    name: Amen Bank
+    country: TN
+    sector: bank
+    keywords: [amenbank]
+    official_domains: [amenbank.com.tn]
+
+  - id: uib
+    name: UIB (Union Internationale de Banques)
+    country: TN
+    sector: bank
+    keywords: [uibnet, uibbank]
+    weak_keywords: [uib]
+    official_domains: [uib.com.tn]
+
+  - id: bh
+    name: BH Bank
+    country: TN
+    sector: bank
+    keywords: [bhbank]
+    official_domains: [bh.com.tn, bhbank.tn]
+
+  - id: atb
+    name: ATB (Arab Tunisian Bank)
+    country: TN
+    sector: bank
+    keywords: [atbbank, atbnet]
+    weak_keywords: [atb]
+    official_domains: [atb.tn, atb.com.tn]
+
+  - id: bt
+    name: Banque de Tunisie
+    country: TN
+    sector: bank
+    keywords: [banquedetunisie]
+    official_domains: [bt.com.tn]
+
+  - id: ubci
+    name: UBCI
+    country: TN
+    sector: bank
+    keywords: [ubci]
+    official_domains: [ubci.tn, ubci.com.tn]
+
+  - id: zitouna
+    name: Banque Zitouna
+    country: TN
+    sector: bank
+    keywords: [banquezitouna, zitounabank]
+    official_domains: [banquezitouna.com]
+
+  - id: qnb-tn
+    name: QNB Tunisia
+    country: TN
+    sector: bank
+    keywords: [qnbtunisia, qnbtn]
+    official_domains: [qnb.com.tn]
+
+  - id: wifak
+    name: Wifak International Bank
+    country: TN
+    sector: bank
+    keywords: [wifakbank, wifak]
+    official_domains: [wifakbank.com]
+
+  - id: albaraka-tn
+    name: Al Baraka Bank Tunisia
+    country: TN
+    sector: bank
+    keywords: [albarakatn, albarakatunisie]
+    official_domains: [albarakabank.com.tn]
+
+  - id: bte
+    name: BTE (Banque de Tunisie et des Emirats)
+    country: TN
+    sector: bank
+    weak_keywords: [bte]
+    official_domains: [bte.com.tn]
+
+  - id: btk
+    name: BTK Bank
+    country: TN
+    sector: bank
+    keywords: [btkbank]
+    weak_keywords: [btk]
+    official_domains: [btk.com.tn]
+
+  # ------------------------------------------------------ Tunisia: payments, post
+  - id: poste-tn
+    name: La Poste Tunisienne
+    country: TN
+    sector: post
+    keywords: [postetn, postetunisie, postetunisienne, lapostetn, laposte-tunisie, edinar]
+    official_domains: [poste.tn]
+
+  - id: d17
+    name: D17 (La Poste Tunisienne wallet)
+    country: TN
+    sector: payments
+    weak_keywords: [d17]
+    official_domains: [d17.tn, poste.tn]
+
+  - id: flouci
+    name: Flouci
+    country: TN
+    sector: payments
+    keywords: [flouci]
+    official_domains: [flouci.com]
+
+  - id: sobflous
+    name: Sobflous
+    country: TN
+    sector: payments
+    keywords: [sobflous]
+    official_domains: [sobflous.tn]
+
+  - id: clictopay
+    name: ClicToPay
+    country: TN
+    sector: payments
+    keywords: [clictopay]
+    official_domains: [clictopay.com.tn]
+
+  # ----------------------------------------------------------- Tunisia: telecom
+  - id: tunisietelecom
+    name: Tunisie Telecom
+    country: TN
+    sector: telecom
+    keywords: [tunisietelecom, tunisietelekom]
+    official_domains: [tunisietelecom.tn]
+
+  - id: ooredoo
+    name: Ooredoo (Tunisie and Algerie)
+    country: TN,DZ
+    sector: telecom
+    keywords: [ooredoo]
+    official_domains: [ooredoo.tn, ooredoo.dz, ooredoo.qa, ooredoo.com, ooredoo.om, ooredoo.kw, ooredoo.mv, ooredoo.ps, ooredoo.iq, ooredoo.mm]
+
+  - id: orange-tn
+    name: Orange Tunisie
+    country: TN
+    sector: telecom
+    keywords: [orangetn, orangetunisie]
+    official_domains: [orange.tn]
+
+  # ------------------------------------------- Tunisia: government and utilities
+  - id: cnss-tn
+    name: CNSS Tunisie
+    country: TN
+    sector: government
+    keywords: [cnsstn, cnsstunisie]
+    weak_keywords: [cnss]
+    official_domains: [cnss.tn]
+
+  - id: cnam
+    name: CNAM
+    country: TN
+    sector: government
+    keywords: [cnamtn, cnamtunisie]
+    weak_keywords: [cnam]
+    official_domains: [cnam.nat.tn]
+
+  - id: finances-tn
+    name: Ministere des Finances / Jibaya
+    country: TN
+    sector: government
+    keywords: [jibaya, financestn]
+    official_domains: [finances.gov.tn, jibaya.tn]
+
+  - id: steg
+    name: STEG
+    country: TN
+    sector: utility
+    keywords: [stegtn]
+    weak_keywords: [steg]
+    official_domains: [steg.com.tn]
+
+  - id: sonede
+    name: SONEDE
+    country: TN
+    sector: utility
+    keywords: [sonede]
+    official_domains: [sonede.com.tn]
+
+  - id: tunisair
+    name: Tunisair
+    country: TN
+    sector: transport
+    keywords: [tunisair]
+    official_domains: [tunisair.com, tunisair.com.tn]
+
+  - id: sncft
+    name: SNCFT
+    country: TN
+    sector: transport
+    keywords: [sncft]
+    official_domains: [sncft.com.tn]
+
+  # ------------------------------------------------------------------- Morocco
+  - id: attijariwafa
+    name: Attijariwafa bank
+    country: MA
+    sector: bank
+    keywords: [attijariwafa, wafacash]
+    official_domains: [attijariwafabank.com, wafacash.com]
+
+  - id: cih
+    name: CIH Bank
+    country: MA
+    sector: bank
+    keywords: [cihbank]
+    weak_keywords: [cih]
+    official_domains: [cihbank.ma]
+
+  - id: bankofafrica-ma
+    name: Bank of Africa (Maroc)
+    country: MA
+    sector: bank
+    keywords: [bankofafrica]
+    official_domains: [bankofafrica.ma]
+
+  - id: barid-ma
+    name: Barid Al-Maghrib / Al Barid Bank
+    country: MA
+    sector: post
+    keywords: [baridalmaghrib, albaridbank, baridbank, barid]
+    official_domains: [poste.ma, barid.ma, albaridbank.ma]
+
+  - id: iam
+    name: Maroc Telecom
+    country: MA
+    sector: telecom
+    keywords: [maroctelecom]
+    weak_keywords: [iam]
+    official_domains: [iam.ma]
+
+  - id: inwi
+    name: inwi
+    country: MA
+    sector: telecom
+    weak_keywords: [inwi]
+    official_domains: [inwi.ma]
+
+  - id: cmi
+    name: CMI (Centre Monetique Interbancaire)
+    country: MA
+    sector: payments
+    weak_keywords: [cmi]
+    official_domains: [cmi.co.ma]
+
+  - id: dgi-ma
+    name: DGI Maroc
+    country: MA
+    sector: government
+    keywords: [taxgovma]
+    official_domains: [tax.gov.ma]
+
+  - id: ram
+    name: Royal Air Maroc
+    country: MA
+    sector: transport
+    keywords: [royalairmaroc]
+    official_domains: [royalairmaroc.com]
+
+  # ------------------------------------------------------------------- Algeria
+  - id: poste-dz
+    name: Algerie Poste / BaridiMob
+    country: DZ
+    sector: post
+    keywords: [algerieposte, baridimob, postedz, edahabia]
+    official_domains: [poste.dz]
+
+  - id: mobilis
+    name: Mobilis
+    country: DZ
+    sector: telecom
+    keywords: [mobilisdz]
+    weak_keywords: [mobilis]
+    official_domains: [mobilis.dz]
+
+  - id: djezzy
+    name: Djezzy
+    country: DZ
+    sector: telecom
+    keywords: [djezzy]
+    official_domains: [djezzy.dz]
+
+  - id: cpa
+    name: CPA (Credit Populaire d'Algerie)
+    country: DZ
+    sector: bank
+    keywords: [cpabank, cpa-bank]
+    official_domains: [cpa-bank.dz]
+
+  - id: airalgerie
+    name: Air Algerie
+    country: DZ
+    sector: transport
+    keywords: [airalgerie]
+    official_domains: [airalgerie.dz]

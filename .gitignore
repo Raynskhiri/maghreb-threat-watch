@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# Per-run scratch output (summary and alert body for the workflow)
+out/
+examples/out/
+
+.env
+.DS_Store

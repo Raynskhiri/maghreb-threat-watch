@@ -1,0 +1,3 @@
+# Domains that must never be flagged, one per line. Subdomains are included.
+# Official brand domains live in brands.yml; use this file for everything else
+# (partners, known resellers, false positives you have reviewed).
