@@ -61,7 +61,24 @@ def test_crtsh_treats_404_as_no_results(monkeypatch):
     monkeypatch.setattr(crtsh.time, "sleep", lambda s: None)
     brand = Brand(id="atb", name="ATB", country="TN", sector="bank", keywords=["atbbank"])
     res = crtsh.collect_crtsh([brand])
-    assert res.status == "ok" and res.observations == [] and res.detail == ""
+    assert res.status == "ok" and res.observations == [] and "failed" not in res.detail
+
+
+def test_crtsh_rotates_keywords_daily():
+    kws = ["a", "b", "c"]
+    days = {tuple(crtsh._rotate(kws, date(2026, 10, d))) for d in (20, 21, 22)}
+    assert len(days) == 3
+    assert all(sorted(k) == kws for k in days)
+
+
+def test_crtsh_stops_at_time_budget(monkeypatch):
+    calls = []
+    monkeypatch.setattr(crtsh, "get", lambda *a, **k: calls.append(1) or FakeResponse("[]"))
+    monkeypatch.setattr(crtsh.time, "sleep", lambda s: None)
+    brand = Brand(id="x", name="X", country="TN", sector="bank", keywords=["alpha", "bravo", "charlie"])
+    res = crtsh.collect_crtsh([brand], budget_minutes=0)
+    assert calls == []
+    assert "time budget" in res.detail
 
 
 def test_crtsh_skips_weak_keywords():

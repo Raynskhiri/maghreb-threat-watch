@@ -9,8 +9,10 @@ thresholds:
 # Only open a GitHub issue when a run finds new domains at or above this severity.
 alert_severity: high
 
-# How many days back to look in certificate transparency logs.
-lookback_days: 3
+# How many days back to look in certificate transparency logs. crt.sh's search
+# index can lag behind the logs by a week or more, so look back generously;
+# already-reported domains are never repeated anyway.
+lookback_days: 14
 
 # How long to remember a domain so it is not re-reported every day.
 state_retention_days: 120
@@ -18,8 +20,11 @@ state_retention_days: 120
 sources:
   crtsh:
     enabled: true
-    timeout: 90
+    timeout: 60
     pause_seconds: 4
+    # crt.sh is free and often overloaded. Stop after this many minutes; the
+    # keyword order rotates daily so every brand is covered within a few runs.
+    budget_minutes: 25
   openphish:
     enabled: true
     url: https://raw.githubusercontent.com/openphish/public_feed/refs/heads/main/feed.txt

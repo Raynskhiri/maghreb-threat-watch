@@ -50,7 +50,7 @@ def collect(sources: list[str], inputs: list[str], brands: list[Brand], settings
         fn = COLLECTORS[name]
         log.info("collecting from %s", name)
         if name == "crtsh":
-            res = fn(brands, lookback_days=settings.lookback_days, **cfg)
+            res = fn(brands, lookback_days=settings.lookback_days, day=day, **cfg)
         elif name == "whoisds":
             res = fn(day=day - timedelta(days=1))
         else:
