@@ -51,7 +51,10 @@ NEGATIVES = [
     "iam-rich.com",
 ]
 
-OFFICIAL = ["www.biat.com.tn", "e-dinar.poste.tn", "ebanking.attijaribank.com.tn", "www.ooredoo.qa", "biat.com.tn"]
+# Includes real subdomains seen in crt.sh that were flagged before the
+# official domain list was complete (attijarinet is Attijariwafa's e-banking).
+OFFICIAL = ["www.biat.com.tn", "e-dinar.poste.tn", "ebanking.attijaribank.com.tn", "www.ooredoo.qa", "biat.com.tn",
+            "attijarinet.attijariwafa.com", "attijarifactures.attijariwafa.com"]
 
 
 @pytest.mark.parametrize("domain,brand,min_sev,kind", POSITIVES)

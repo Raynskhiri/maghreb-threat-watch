@@ -62,6 +62,16 @@ posterflex.com: no brand match
 
 That second domain uses a **Cyrillic "а"**. It looks identical to the real thing in a browser bar. See a full sample report in [`examples/reports/LATEST.md`](examples/reports/LATEST.md).
 
+## Data sources
+
+| Source | What it adds | Notes |
+|---|---|---|
+| [crt.sh](https://crt.sh) | Certificates issued for brand-like names, often before the site goes live | Free and often overloaded: each run works within a time budget and rotates keywords daily |
+| [OpenPhish](https://openphish.com) community feed | Confirmed phishing URLs | Refreshed a few times a day |
+| [WhoisDS](https://www.whoisds.com/newly-registered-domains) | About 70,000 generic-TLD domains registered the day before | Does not cover ccTLDs like `.tn` |
+| [URLhaus](https://urlhaus.abuse.ch) | Malware distribution URLs | Optional, needs a free abuse.ch key |
+| Your own files | DNS log exports, zone extracts, shared lists | `--input file.txt` |
+
 ## How the scoring works
 
 A domain gets one **base match** (the strongest that applies) plus **context bonuses**. Score is capped at 100.

@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import logging
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 
 from ..config import Brand
 from .base import Observation, SourceResult, get, session
@@ -36,19 +36,34 @@ def _parse_time(value: str) -> datetime | None:
         return None
 
 
-def collect_crtsh(brands: list[Brand], *, lookback_days: int = 3, timeout: int = 90,
-                  pause_seconds: float = 4, **_: object) -> SourceResult:
+def _rotate(keywords: list[str], day: date) -> list[str]:
+    """Start at a different keyword each day, so a run that hits the time
+    budget still covers every keyword over a few days."""
+    if not keywords:
+        return keywords
+    start = day.toordinal() % len(keywords)
+    return keywords[start:] + keywords[:start]
+
+
+def collect_crtsh(brands: list[Brand], *, lookback_days: int = 3, timeout: int = 60,
+                  pause_seconds: float = 4, budget_minutes: float = 25, day: date | None = None,
+                  **_: object) -> SourceResult:
     started = time.monotonic()
     result = SourceResult("crt.sh")
     since = datetime.now(timezone.utc) - timedelta(days=lookback_days)
     sess = session()
     failures = 0
-    keywords = _keywords(brands)
+    queried = 0
+    keywords = _rotate(_keywords(brands), day or date.today())
     seen: set[str] = set()
 
     for i, kw in enumerate(keywords):
+        if time.monotonic() - started > budget_minutes * 60:
+            log.info("crt.sh time budget reached after %d of %d keywords", queried, len(keywords))
+            break
         if i:
             time.sleep(pause_seconds)
+        queried += 1
         try:
             resp = get(sess, CRTSH_URL, timeout=timeout, retries=1, accept=(404,),
                        params={"q": f"%{kw}%", "output": "json", "exclude": "expired", "deduplicate": "Y"})
@@ -74,8 +89,12 @@ def collect_crtsh(brands: list[Brand], *, lookback_days: int = 3, timeout: int =
                 ))
 
     result.seconds = round(time.monotonic() - started, 1)
-    if failures and failures == len(keywords):
-        result.status, result.detail = "error", "all crt.sh queries failed"
-    elif failures:
-        result.detail = f"{failures}/{len(keywords)} keyword queries failed"
+    notes = []
+    if queried < len(keywords):
+        notes.append(f"time budget: {queried}/{len(keywords)} keywords searched, the rest rotate in tomorrow")
+    if failures:
+        notes.append(f"{failures}/{queried} queries failed (crt.sh is often overloaded)")
+    if queried and failures == queried:
+        result.status = "error"
+    result.detail = "; ".join(notes)
     return result

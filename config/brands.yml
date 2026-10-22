@@ -21,7 +21,7 @@ brands:
     country: TN
     sector: bank
     keywords: [biat]
-    official_domains: [biat.com.tn]
+    official_domains: [biat.com.tn, assurancesbiat.com.tn]
 
   - id: stb
     name: STB (Societe Tunisienne de Banque)
@@ -250,7 +250,7 @@ brands:
     country: MA
     sector: bank
     keywords: [attijariwafa, wafacash]
-    official_domains: [attijariwafabank.com, wafacash.com]
+    official_domains: [attijariwafabank.com, attijariwafa.com, wafacash.com]
 
   - id: cih
     name: CIH Bank
