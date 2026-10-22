@@ -1,0 +1,68 @@
+name: Daily watch
+
+on:
+  schedule:
+    # 05:41 UTC = 06:41 in Tunis. Off the hour to avoid GitHub's busy :00 slot.
+    - cron: "41 5 * * *"
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: "Sources to run (comma separated)"
+        default: "crtsh,openphish,whoisds,urlhaus"
+        required: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Run Maghreb Threat Watch
+        env:
+          URLHAUS_AUTH_KEY: ${{ secrets.URLHAUS_AUTH_KEY }}
+        run: python -m mtw run --sources "${{ github.event.inputs.sources || 'crtsh,openphish,whoisds,urlhaus' }}"
+
+      - name: Job summary
+        if: always()
+        run: |
+          if [ -f reports/LATEST.md ]; then cat reports/LATEST.md >> "$GITHUB_STEP_SUMMARY"; fi
+
+      - name: Commit results
+        run: |
+          git config user.name "maghreb-threat-watch[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports data feeds hunts
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit"
+          else
+            git commit -m "watch: $(date -u +%F) $(jq -r '"\(.new_findings) new, \(.observations) checked"' out/summary.json)"
+            git push
+          fi
+
+      - name: Open an issue for high-confidence findings
+        if: hashFiles('out/alert.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create threat-watch --color B60205 --description "New lookalike or phishing domains" 2>/dev/null || true
+          gh issue create \
+            --title "New lookalike domains $(date -u +%F)" \
+            --label threat-watch \
+            --body-file out/alert.md

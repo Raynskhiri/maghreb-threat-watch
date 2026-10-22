@@ -1,0 +1,19 @@
+# Maghreb Threat Watch: suspected lookalike/phishing domains (medium and high)
+# Updated 2026-10-22 | rolling 30 days | verify before blocking
+stb-tn-verification.com
+steg-facture-tn.com
+attijarlbank-login.com
+cnss-tn-remboursement.com
+amenb4nk.net
+oredoo-recharge.xyz
+baridimob-dz.top
+b1at-tn.com
+djezzy-bonus.shop
+flouci-pay.netlify.app
+tunisietelecom-facture.online
+biat-secure-login.xyz
+espace-client-attijari.site
+xn--bit-login-1yh.com
+xn--redoo-gift-dvia.com
+colis-suivi.xyz
+verify-account.xyz

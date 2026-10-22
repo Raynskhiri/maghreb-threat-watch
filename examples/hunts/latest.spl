@@ -1,0 +1,8 @@
+``` Maghreb Threat Watch hunt | generated 2026-10-22 | 17 domains ```
+``` Needs DNS data mapped to the CIM Network_Resolution data model. ```
+| tstats summariesonly=false count min(_time) as first_seen max(_time) as last_seen
+    from datamodel=Network_Resolution
+    where DNS.query IN ("stb-tn-verification.com", "*.stb-tn-verification.com", "steg-facture-tn.com", "*.steg-facture-tn.com", "attijarlbank-login.com", "*.attijarlbank-login.com", "cnss-tn-remboursement.com", "*.cnss-tn-remboursement.com", "amenb4nk.net", "*.amenb4nk.net", "oredoo-recharge.xyz", "*.oredoo-recharge.xyz", "baridimob-dz.top", "*.baridimob-dz.top", "b1at-tn.com", "*.b1at-tn.com", "djezzy-bonus.shop", "*.djezzy-bonus.shop", "flouci-pay.netlify.app", "*.flouci-pay.netlify.app", "tunisietelecom-facture.online", "*.tunisietelecom-facture.online", "biat-secure-login.xyz", "*.biat-secure-login.xyz", "espace-client-attijari.site", "*.espace-client-attijari.site", "xn--bit-login-1yh.com", "*.xn--bit-login-1yh.com", "xn--redoo-gift-dvia.com", "*.xn--redoo-gift-dvia.com", "colis-suivi.xyz", "*.colis-suivi.xyz", "verify-account.xyz", "*.verify-account.xyz")
+    by DNS.src DNS.query
+| convert ctime(first_seen) ctime(last_seen)
+| sort - count

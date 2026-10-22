@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maghreb-threat-watch"
+version = "0.1.0"
+description = "Open-source early warning for lookalike and phishing domains targeting North African brands"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Rayen Skhiri" }]
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31", "PyYAML>=6.0"]
+keywords = ["threat-intelligence", "phishing", "typosquatting", "certificate-transparency", "tunisia", "maghreb", "cortex-xdr", "xql"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Security",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+mtw = "mtw.cli:main"
+
+[tool.setuptools]
+packages = ["mtw", "mtw.collectors"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

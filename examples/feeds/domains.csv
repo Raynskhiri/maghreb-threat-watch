@@ -1,0 +1,18 @@
+first_seen,domain,host,brand,country,sector,severity,score,match_type,sources
+2026-10-22,stb-tn-verification.com,stb-tn-verification.com,STB (Societe Tunisienne de Banque),TN,bank,medium,50,weak,sample_feed.txt
+2026-10-22,steg-facture-tn.com,steg-facture-tn.com,STEG,TN,utility,medium,50,weak,sample_feed.txt
+2026-10-22,attijarlbank-login.com,attijarlbank-login.com,Attijari Bank Tunisie,TN,bank,medium,53,typo,sample_feed.txt
+2026-10-22,cnss-tn-remboursement.com,cnss-tn-remboursement.com,CNSS Tunisie,TN,government,medium,60,affix,sample_feed.txt
+2026-10-22,amenb4nk.net,amenb4nk.net,Amen Bank,TN,bank,medium,63,leet,sample_feed.txt
+2026-10-22,oredoo-recharge.xyz,oredoo-recharge.xyz,Ooredoo (Tunisie and Algerie),"TN,DZ",telecom,medium,63,typo,sample_feed.txt
+2026-10-22,baridimob-dz.top,baridimob-dz.top,Algerie Poste / BaridiMob,DZ,post,high,70,exact,sample_feed.txt
+2026-10-22,b1at-tn.com,b1at-tn.com,BIAT,TN,bank,high,73,leet,sample_feed.txt
+2026-10-22,djezzy-bonus.shop,djezzy-bonus.shop,Djezzy,DZ,telecom,high,75,exact,sample_feed.txt
+2026-10-22,flouci-pay.netlify.app,flouci-pay.netlify.app,Flouci,TN,payments,high,75,exact,sample_feed.txt
+2026-10-22,tunisietelecom-facture.online,tunisietelecom-facture.online,Tunisie Telecom,TN,telecom,high,75,exact,sample_feed.txt
+2026-10-22,biat-secure-login.xyz,biat-secure-login.xyz,BIAT,TN,bank,high,80,exact,sample_feed.txt
+2026-10-22,espace-client-attijari.site,espace-client-attijari.site,Attijari Bank Tunisie,TN,bank,high,80,exact,sample_feed.txt
+2026-10-22,xn--bit-login-1yh.com,xn--bit-login-1yh.com,BIAT,TN,bank,high,85,homoglyph,sample_feed.txt
+2026-10-22,xn--redoo-gift-dvia.com,xn--redoo-gift-dvia.com,Ooredoo (Tunisie and Algerie),"TN,DZ",telecom,high,85,homoglyph,sample_feed.txt
+2026-10-22,colis-suivi.xyz,poste.tn.colis-suivi.xyz,La Poste Tunisienne,TN,post,high,95,affix,sample_feed.txt
+2026-10-22,verify-account.xyz,biat.com.tn.verify-account.xyz,BIAT,TN,bank,high,100,exact,sample_feed.txt
