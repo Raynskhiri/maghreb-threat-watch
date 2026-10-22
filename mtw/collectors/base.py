@@ -7,7 +7,7 @@ import requests
 
 from .. import __version__
 
-USER_AGENT = f"maghreb-threat-watch/{__version__} (+https://github.com/topics/maghreb-threat-watch)"
+USER_AGENT = f"maghreb-threat-watch/{__version__} (+https://github.com/Raynskhiri/maghreb-threat-watch)"
 
 
 @dataclass
