@@ -127,7 +127,7 @@ python -m mtw site                                # render the public dashboard 
 1. **Fork** this repository.
 2. Go to **Actions** and enable workflows.
 3. *(Optional)* Add a free [abuse.ch Auth-Key](https://auth.abuse.ch/) as a repository secret named `URLHAUS_AUTH_KEY` to enable URLhaus.
-4. *(Optional)* To publish the dashboard on Vercel, add a `VERCEL_TOKEN` secret and change `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` in `.github/workflows/watch.yml` to your own. Without the secret, the dashboard is still built into `site/` and committed, so any static host (GitHub Pages, Netlify) can serve it.
+4. *(Optional)* The dashboard is built into `site/` and committed every day. Point any static host at that folder (this repo uses Vercel's GitHub integration with root directory `site`).
 5. That's it. Every morning at 06:41 Tunis time the **Daily watch** workflow runs, commits the results, and opens an issue if it finds something high-confidence. Trigger it any time from **Actions → Daily watch → Run workflow**.
 
 ## Outputs
