@@ -23,6 +23,10 @@ jobs:
   watch:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    env:
+      # True only when the repository has a VERCEL_TOKEN secret. The token itself
+      # is passed to the deploy step alone.
+      HAS_VERCEL: ${{ secrets.VERCEL_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v5
 
@@ -39,6 +43,9 @@ jobs:
           URLHAUS_AUTH_KEY: ${{ secrets.URLHAUS_AUTH_KEY }}
         run: python -m mtw run --sources "${{ github.event.inputs.sources || 'crtsh,openphish,whoisds,urlhaus' }}"
 
+      - name: Build the public dashboard
+        run: python -m mtw site
+
       - name: Job summary
         if: always()
         run: |
@@ -48,13 +55,21 @@ jobs:
         run: |
           git config user.name "maghreb-threat-watch[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports data feeds hunts
+          git add reports data feeds hunts site
           if git diff --cached --quiet; then
             echo "Nothing new to commit"
           else
             git commit -m "watch: $(date -u +%F) $(jq -r '"\(.new_findings) new, \(.observations) checked"' out/summary.json)"
             git push
           fi
+
+      - name: Publish dashboard to threatwatch.rayenskhiri.online
+        if: env.HAS_VERCEL == 'true'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_opuQjHkBRAF7HeMg8tOKXOlU
+          VERCEL_PROJECT_ID: prj_uCpvUP4EFdcz0TTG2ci5KAxaP2Uh
+        run: npx --yes vercel deploy site --prod --yes --token "$VERCEL_TOKEN"
 
       - name: Open an issue for high-confidence findings
         if: hashFiles('out/alert.md') != ''
