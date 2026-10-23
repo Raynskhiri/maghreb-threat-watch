@@ -179,10 +179,32 @@ def build(root: Path, out: Path, brands: list[Brand] | None = None, today: date 
             (out / sub).mkdir(exist_ok=True)
             shutil.copy2(src, out / sub / name)
     (out / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
+    (out / "stats.json").write_text(json.dumps(stats(root, brands), indent=1) + "\n", encoding="utf-8")
     return out / "index.html"
 
 
-FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#1A5BB5"/><circle cx="32" cy="32" r="15" fill="none" stroke="#F6F8FB" stroke-width="5"/><circle cx="32" cy="32" r="4.5" fill="#FFE066"/></svg>
+def stats(root: Path, brands: list[Brand]) -> dict:
+    """Small public summary that rayenskhiri.online reads to show live numbers."""
+    findings = _load_jsonl(root / "data" / "findings.jsonl")
+    runs = _load_jsonl(root / "data" / "runs.jsonl")
+    last = runs[-1] if runs else {}
+    day = last.get("day")
+    cutoff = ((date.fromisoformat(day) if day else date.today()) - timedelta(days=WINDOW_DAYS)).isoformat()
+    window = [f for f in findings if f.get("date", "") >= cutoff and f.get("severity") in ("high", "medium")]
+    return {
+        "last_run_day": day,
+        "domains_checked_last_run": last.get("observations"),
+        "new_last_run": last.get("new_findings"),
+        "findings_30d": len(window),
+        "high_30d": sum(1 for f in window if f["severity"] == "high"),
+        "runs": len(runs),
+        "brands": len(brands),
+        "countries": len({b.country.split(",")[0] for b in brands}),
+        "sources_ok": sorted(k for k, v in last.get("sources", {}).items() if v.get("status") == "ok"),
+    }
+
+
+FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#FF6B1A"/><circle cx="32" cy="32" r="15" fill="none" stroke="#1A0B02" stroke-width="5"/><circle cx="32" cy="32" r="4.5" fill="#1A0B02"/></svg>
 """
 
 PAGE = """<!doctype html>
@@ -198,30 +220,20 @@ PAGE = """<!doctype html>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
 <style>
 :root {{
-  --wash: #F6F8FB; --ink: #0D1B2E; --blue: #1A5BB5; --blue-soft: #DCE7F7; --stone: #586577;
-  --rule: #D5DDE8; --marker: #FFE066; --high: #B3261E; --high-soft: #FBE3E1; --med: #8A5A00; --med-soft: #FCEFCF;
-  --code: #EDF1F7; color-scheme: light;
-}}
-@media (prefers-color-scheme: dark) {{
-  :root:not([data-theme="light"]) {{
-    --wash: #0E1A2C; --ink: #E9EEF6; --blue: #86B6FF; --blue-soft: #1B2E4A; --stone: #9DAABD; --rule: #24364F;
-    --marker: #E9C84A; --high: #FF9C94; --high-soft: #3A1E25; --med: #F2C46A; --med-soft: #33291A; --code: #15243A;
-    color-scheme: dark;
-  }}
-}}
-:root[data-theme="dark"] {{
-  --wash: #0E1A2C; --ink: #E9EEF6; --blue: #86B6FF; --blue-soft: #1B2E4A; --stone: #9DAABD; --rule: #24364F;
-  --marker: #E9C84A; --high: #FF9C94; --high-soft: #3A1E25; --med: #F2C46A; --med-soft: #33291A; --code: #15243A;
+  /* Same brand as rayenskhiri.online: near-black, orange accent. */
+  --wash: #0A0C10; --ink: #F2F4F7; --blue: #FF8C42; --blue-soft: #1C1510; --stone: #A3ABB8;
+  --rule: #242B37; --marker: #FF6B1A; --high: #FF6B6B; --high-soft: #2E1719; --med: #FFB067; --med-soft: #2E2215;
+  --code: #131821; --ok: #3DDC97; --accent: #FF6B1A; --accent-ink: #1A0B02;
   color-scheme: dark;
 }}
 * {{ box-sizing: border-box; }}
-body {{ margin: 0; background: var(--wash); color: var(--ink); font-family: "Onest", system-ui, sans-serif; font-size: 1rem; line-height: 1.6; }}
+body {{ margin: 0; background: var(--wash); color: var(--ink); font-family: "Archivo", system-ui, sans-serif; -webkit-font-smoothing: antialiased; font-size: 1rem; line-height: 1.6; }}
 a {{ color: var(--blue); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }}
 a:hover {{ text-decoration-thickness: 2px; }}
-:focus-visible {{ outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }}
+:focus-visible {{ outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }}
 .vh {{ position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }}
 .wrap {{ max-width: 1120px; margin: 0 auto; padding: 0 24px; }}
 @media (max-width: 600px) {{ .wrap {{ padding: 0 16px; }} }}
@@ -235,12 +247,12 @@ header nav a:hover {{ color: var(--ink); }}
 
 .hero {{ padding: 64px 0 40px; border-bottom: 1px solid var(--rule); }}
 .hero p.what {{ color: var(--stone); margin: 0 0 14px; max-width: 46em; }}
-.hero h1 {{ font-size: clamp(2.1rem, 5.4vw, 3.9rem); line-height: 1.05; letter-spacing: -0.035em; font-weight: 600; margin: 0 0 14px; max-width: 18ch; }}
+.hero h1 {{ font-size: clamp(2.2rem, 5.6vw, 4.2rem); line-height: 1.02; letter-spacing: -0.02em; font-weight: 850; font-stretch: 108%; margin: 0 0 14px; max-width: 18ch; }}
 .hero p.sub {{ font-size: 1.15rem; margin: 0; max-width: 40em; }}
 .hero .scope {{ margin: 22px 0 0; color: var(--stone); font-size: 0.95rem; }}
 
 section {{ padding: 48px 0; border-bottom: 1px solid var(--rule); }}
-section > h2 {{ font-size: 1.5rem; letter-spacing: -0.02em; font-weight: 600; margin: 0 0 6px; }}
+section > h2 {{ font-size: 1.6rem; letter-spacing: -0.01em; font-weight: 800; margin: 0 0 6px; }}
 section > p.lede {{ color: var(--stone); margin: 0 0 22px; max-width: 46em; }}
 
 .table-wrap {{ overflow-x: auto; }}
@@ -270,7 +282,7 @@ details.low > summary {{ font-size: 1rem; }}
   .findings td.when, .findings td:nth-child(3) {{ font-size: 0.92rem; }}
   .findings td:nth-child(3) .sub, .findings td.when .sub {{ display: inline; margin-left: 6px; }}
 }}
-.empty {{ background: var(--blue-soft); padding: 18px 20px; border-radius: 10px; max-width: 46em; margin: 0; }}
+.empty {{ background: var(--blue-soft); border: 1px solid rgba(255,107,26,0.3); padding: 18px 20px; border-radius: 10px; max-width: 46em; margin: 0; }}
 
 .hunts {{ display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; }}
 .hunt {{ min-width: 0; }}
@@ -283,7 +295,7 @@ button.copy:hover {{ border-color: var(--blue); }}
 
 .sources td.num, .sources th.num {{ text-align: right; font-variant-numeric: tabular-nums; padding-right: 24px; }}
 .st {{ font-weight: 600; }}
-.st-ok {{ color: var(--blue); }}
+.st-ok {{ color: var(--ok); }}
 .st-error {{ color: var(--high); }}
 .st-skipped {{ color: var(--stone); }}
 .note {{ color: var(--stone); font-size: 0.92rem; }}
@@ -303,18 +315,18 @@ button.copy:hover {{ border-color: var(--blue); }}
 
 .method p {{ max-width: 46em; }}
 footer {{ padding: 28px 0 48px; color: var(--stone); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }}
-.theme {{ background: none; border: 1px solid var(--rule); color: var(--stone); font: inherit; font-size: 0.85rem; padding: 4px 12px; border-radius: 999px; cursor: pointer; }}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1A5BB5"/><circle cx="32" cy="32" r="15" fill="none" stroke="#F6F8FB" stroke-width="5"/><circle cx="32" cy="32" r="4.5" fill="#FFE066"/></svg>Maghreb Threat Watch</a>
+    <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#FF6B1A"/><circle cx="32" cy="32" r="15" fill="none" stroke="#1A0B02" stroke-width="5"/><circle cx="32" cy="32" r="4.5" fill="#1A0B02"/></svg>Maghreb Threat Watch</a>
     <nav aria-label="Sections">
       <a href="#feed">Findings</a>
       <a href="#hunt">Hunt</a>
       <a href="#coverage">Coverage</a>
       <a href="{repo}">Source</a>
+      <a href="{author}">Rayen Skhiri</a>
     </nav>
   </header>
 
@@ -373,7 +385,6 @@ footer {{ padding: 28px 0 48px; color: var(--stone); font-size: 0.9rem; display:
 
   <footer>
     <span>Built and maintained by <a href="{author}">Rayen Skhiri</a>. Open source under the MIT license. Page generated {updated}.</span>
-    <button class="theme" type="button" id="theme">Switch theme</button>
   </footer>
 </div>
 <script>
@@ -384,14 +395,6 @@ footer {{ padding: 28px 0 48px; color: var(--stone); font-size: 0.9rem; display:
       var done = function () {{ btn.textContent = 'Copied'; setTimeout(function () {{ btn.textContent = 'Copy query'; }}, 1600); }};
       if (navigator.clipboard) {{ navigator.clipboard.writeText(text).then(done, function () {{ btn.textContent = 'Select and copy'; }}); }}
     }});
-  }});
-  var root = document.documentElement, t = document.getElementById('theme');
-  try {{ var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); }} catch (e) {{}}
-  t.addEventListener('click', function () {{
-    var cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    var next = cur === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try {{ localStorage.setItem('theme', next); }} catch (e) {{}}
   }});
 }})();
 </script>
