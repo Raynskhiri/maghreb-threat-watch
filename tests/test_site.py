@@ -38,3 +38,15 @@ def test_site_empty_state(tmp_path, brands, settings):
     page = build(tmp_path, tmp_path / "site", brands).read_text()
     assert "No new lookalikes on 22 October 2026." in page
     assert "Nothing medium or high in the last 30 days" in page
+
+
+def test_site_writes_stats_json(tmp_path, brands, settings):
+    import json
+    run(root=tmp_path, brands=brands, settings=settings, allowlist=load_allowlist(),
+        sources=[], inputs=[SAMPLE], day=date(2026, 10, 22))
+    build(tmp_path, tmp_path / "site", brands)
+    st = json.loads((tmp_path / "site" / "stats.json").read_text())
+    assert st["last_run_day"] == "2026-10-22"
+    assert st["domains_checked_last_run"] == 29
+    assert st["new_last_run"] == 18
+    assert st["findings_30d"] == 17 and st["brands"] == 45
