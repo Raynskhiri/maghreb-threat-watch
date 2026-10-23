@@ -1,0 +1,2 @@
+# Maghreb Threat Watch: suspected lookalike/phishing domains (medium and high)
+# Updated 2026-10-23 | rolling 30 days | verify before blocking
