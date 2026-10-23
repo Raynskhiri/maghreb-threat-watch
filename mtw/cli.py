@@ -5,6 +5,7 @@
     python -m mtw run --input mylist.txt   # add your own domains or URLs
     python -m mtw check biat-login.xyz     # explain the score of one domain
     python -m mtw demo                     # offline demo on bundled sample data
+    python -m mtw site                     # render the public dashboard into site/
 """
 
 from __future__ import annotations
@@ -83,6 +84,14 @@ def cmd_demo(args) -> int:
     return 0
 
 
+def cmd_site(args) -> int:
+    from .site import build
+    brands, _, _ = _load(args)
+    index = build(Path(args.root), Path(args.out), brands)
+    print(f"Wrote {index}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="mtw", description="Maghreb Threat Watch")
     p.add_argument("--version", action="version", version=f"mtw {__version__}")
@@ -107,6 +116,11 @@ def main(argv: list[str] | None = None) -> int:
     d.add_argument("--root", default=".", help="output folder (default: examples/)")
     d.add_argument("--date", help="report date YYYY-MM-DD")
     d.set_defaults(func=cmd_demo)
+
+    st = sub.add_parser("site", help="render the public dashboard as static files")
+    st.add_argument("--root", default=".", help="folder with data/, feeds/, hunts/ (default: current folder)")
+    st.add_argument("--out", default="site", help="output folder (default: site)")
+    st.set_defaults(func=cmd_site)
 
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO if args.verbose or args.command == "run" else logging.WARNING,

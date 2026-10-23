@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maghreb Threat Watch | Phishing lookalikes targeting North Africa</title>
+<meta name="description" content="Daily, open early warning for lookalike and phishing domains targeting banks, telecoms and public services in Tunisia, Morocco and Algeria.">
+<meta property="og:title" content="Maghreb Threat Watch">
+<meta property="og:description" content="No new lookalikes on 23 October 2026. Open early warning for phishing aimed at North Africa.">
+<meta property="og:url" content="https://threatwatch.rayenskhiri.online/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --wash: #F6F8FB; --ink: #0D1B2E; --blue: #1A5BB5; --blue-soft: #DCE7F7; --stone: #586577;
+  --rule: #D5DDE8; --marker: #FFE066; --high: #B3261E; --high-soft: #FBE3E1; --med: #8A5A00; --med-soft: #FCEFCF;
+  --code: #EDF1F7; color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --wash: #0E1A2C; --ink: #E9EEF6; --blue: #86B6FF; --blue-soft: #1B2E4A; --stone: #9DAABD; --rule: #24364F;
+    --marker: #E9C84A; --high: #FF9C94; --high-soft: #3A1E25; --med: #F2C46A; --med-soft: #33291A; --code: #15243A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --wash: #0E1A2C; --ink: #E9EEF6; --blue: #86B6FF; --blue-soft: #1B2E4A; --stone: #9DAABD; --rule: #24364F;
+  --marker: #E9C84A; --high: #FF9C94; --high-soft: #3A1E25; --med: #F2C46A; --med-soft: #33291A; --code: #15243A;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--wash); color: var(--ink); font-family: "Onest", system-ui, sans-serif; font-size: 1rem; line-height: 1.6; }
+a { color: var(--blue); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 600px) { .wrap { padding: 0 16px; } }
+
+header.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 24px 0 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; text-decoration: none; color: var(--ink); }
+.brand svg { width: 28px; height: 28px; }
+header nav { display: flex; gap: 8px 20px; flex-wrap: wrap; }
+header nav a { color: var(--stone); text-decoration: none; font-size: 0.95rem; }
+header nav a:hover { color: var(--ink); }
+
+.hero { padding: 64px 0 40px; border-bottom: 1px solid var(--rule); }
+.hero p.what { color: var(--stone); margin: 0 0 14px; max-width: 46em; }
+.hero h1 { font-size: clamp(2.1rem, 5.4vw, 3.9rem); line-height: 1.05; letter-spacing: -0.035em; font-weight: 600; margin: 0 0 14px; max-width: 18ch; }
+.hero p.sub { font-size: 1.15rem; margin: 0; max-width: 40em; }
+.hero .scope { margin: 22px 0 0; color: var(--stone); font-size: 0.95rem; }
+
+section { padding: 48px 0; border-bottom: 1px solid var(--rule); }
+section > h2 { font-size: 1.5rem; letter-spacing: -0.02em; font-weight: 600; margin: 0 0 6px; }
+section > p.lede { color: var(--stone); margin: 0 0 22px; max-width: 46em; }
+
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-bottom: 1px solid var(--rule); }
+thead th { font-weight: 500; color: var(--stone); font-size: 0.9rem; }
+.findings .score { width: 76px; }
+.pill { display: inline-block; min-width: 2.6em; text-align: center; padding: 2px 8px; border-radius: 6px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.sev-high .pill { background: var(--high-soft); color: var(--high); }
+.sev-medium .pill { background: var(--med-soft); color: var(--med); }
+.sev-low .pill { background: var(--code); color: var(--stone); }
+.dom { font-weight: 600; word-break: break-all; min-width: 220px; }
+.puny, .sub { display: block; font-weight: 400; color: var(--stone); font-size: 0.88rem; }
+details summary { cursor: pointer; color: var(--blue); font-weight: 500; font-size: 0.9rem; margin-top: 4px; }
+details ul { margin: 6px 0 0; padding-left: 18px; font-weight: 400; color: var(--ink); font-size: 0.92rem; }
+.when { white-space: nowrap; }
+details.low { margin-top: 22px; }
+details.low > summary { font-size: 1rem; }
+@media (max-width: 640px) {
+  .findings thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .findings, .findings tbody { display: block; }
+  .findings tr { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .findings td { display: block; border: 0; padding: 0; }
+  .findings td.score { grid-row: span 3; width: auto; }
+  .findings td.dom { min-width: 0; }
+  .findings td.when { white-space: normal; }
+  .findings td.when, .findings td:nth-child(3) { font-size: 0.92rem; }
+  .findings td:nth-child(3) .sub, .findings td.when .sub { display: inline; margin-left: 6px; }
+}
+.empty { background: var(--blue-soft); padding: 18px 20px; border-radius: 10px; max-width: 46em; margin: 0; }
+
+.hunts { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; }
+.hunt { min-width: 0; }
+.hunt h3 { font-size: 1.1rem; margin: 0 0 8px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.hunt pre { margin: 0; background: var(--code); padding: 16px 18px; border-radius: 10px; overflow-x: auto; font-size: 0.85rem; line-height: 1.55; }
+.hunt code { font-family: ui-monospace, "SF Mono", Consolas, monospace; }
+button.copy { font: inherit; font-size: 0.85rem; font-weight: 500; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--ink); cursor: pointer; }
+button.copy:hover { border-color: var(--blue); }
+.downloads { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 22px; font-weight: 500; }
+
+.sources td.num, .sources th.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 24px; }
+.st { font-weight: 600; }
+.st-ok { color: var(--blue); }
+.st-error { color: var(--high); }
+.st-skipped { color: var(--stone); }
+.note { color: var(--stone); font-size: 0.92rem; }
+
+.coverage { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.coverage .country:first-child { grid-column: span 2; }
+.coverage .country:first-child ul { columns: 2; column-gap: 28px; }
+.country li { break-inside: avoid; }
+@media (max-width: 760px) {
+  .coverage { grid-template-columns: 1fr; }
+  .coverage .country:first-child { grid-column: auto; }
+}
+.country h3 { font-size: 1.1rem; margin: 0 0 8px; }
+.country h3 .sub { display: inline; margin-left: 6px; }
+.country ul { margin: 0; padding: 0; list-style: none; columns: 1; font-size: 0.95rem; }
+.country li { padding: 3px 0; border-bottom: 1px solid var(--rule); }
+
+.method p { max-width: 46em; }
+footer { padding: 28px 0 48px; color: var(--stone); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+.theme { background: none; border: 1px solid var(--rule); color: var(--stone); font: inherit; font-size: 0.85rem; padding: 4px 12px; border-radius: 999px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1A5BB5"/><circle cx="32" cy="32" r="15" fill="none" stroke="#F6F8FB" stroke-width="5"/><circle cx="32" cy="32" r="4.5" fill="#FFE066"/></svg>Maghreb Threat Watch</a>
+    <nav aria-label="Sections">
+      <a href="#feed">Findings</a>
+      <a href="#hunt">Hunt</a>
+      <a href="#coverage">Coverage</a>
+      <a href="https://github.com/Raynskhiri/maghreb-threat-watch">Source</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <p class="what">Open early warning for lookalike and phishing domains aimed at North African banks, telecoms, postal services and government portals.</p>
+      <h1>No new lookalikes on 23 October 2026.</h1>
+      <p class="sub">Quiet days are normal. Real campaigns show up a few times a week, and the feed below keeps the last 30 days.</p>
+      <p class="scope">Watching 45 brands in 3 countries. Updated every morning from certificate transparency, newly registered domains and public phishing feeds.</p>
+    </div>
+
+    <section id="feed" aria-labelledby="feed-title">
+      <h2 id="feed-title">Findings, last 30 days</h2>
+      <p class="lede">Medium and high confidence only. Domains are defanged: [.] stands for a dot. A finding is a lead to verify, not a verdict.</p>
+      <p class="empty">Nothing medium or high in the last 30 days. That usually means the brands covered here were not being actively impersonated with new domains, not that the watch stopped: see the source health below.</p>
+      
+    </section>
+
+    <section id="hunt" aria-labelledby="hunt-title">
+      <h2 id="hunt-title">Hunt for them in your environment</h2>
+      <p class="lede">Paste one of these into your SIEM to see whether anyone already resolved or visited these domains. They cover every medium and high finding of the last 30 days, subdomains included.</p>
+      <div class="hunts">
+        <div class="hunt">
+          <h3>Cortex XDR or XSIAM (XQL) <button class="copy" type="button" data-target="xql">Copy query</button></h3>
+          <pre><code id="xql">// Maghreb Threat Watch: no medium or high findings in the last 30 days.
+// Nothing to hunt for today.
+</code></pre>
+        </div>
+        <div class="hunt">
+          <h3>Splunk (CIM Network_Resolution) <button class="copy" type="button" data-target="spl">Copy query</button></h3>
+          <pre><code id="spl">``` Maghreb Threat Watch: no medium or high findings in the last 30 days. ```
+</code></pre>
+        </div>
+      </div>
+      <div class="downloads">
+        <a href="feeds/domains.txt" download>Download blocklist (.txt)</a>
+        <a href="feeds/domains.csv" download>Download with context (.csv)</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="health-title">
+      <h2 id="health-title">Source health</h2>
+      <p class="lede">What the latest run could reach. Free sources fail now and then; the watch carries on with the rest.</p>
+      <div class="table-wrap"><table class="sources"><thead><tr><th scope="col">Source</th><th scope="col">Status</th><th scope="col" class="num">Items</th><th scope="col">Note</th></tr></thead><tbody><tr><th scope="row">crt.sh</th><td class="st st-ok">ok</td><td class="num">5</td><td>2/67 queries failed (crt.sh is often overloaded)</td></tr><tr><th scope="row">openphish</th><td class="st st-ok">ok</td><td class="num">300</td><td></td></tr><tr><th scope="row">whoisds</th><td class="st st-ok">ok</td><td class="num">70,000</td><td>newly registered on 2026-10-22</td></tr><tr><th scope="row">urlhaus</th><td class="st st-skipped">skipped</td><td class="num">0</td><td>URLHAUS_AUTH_KEY not set</td></tr></tbody></table></div><p class="note">Last run checked 70,305 domains and URLs.</p>
+    </section>
+
+    <section id="coverage" aria-labelledby="coverage-title">
+      <h2 id="coverage-title">Coverage</h2>
+      <p class="lede">Brands watched today. Missing one? Open an issue or a pull request on <a href="https://github.com/Raynskhiri/maghreb-threat-watch">GitHub</a>.</p>
+      <div class="coverage"><div class="country"><h3>Tunisia <span class="sub">31</span></h3><ul><li>BIAT</li><li>STB (Societe Tunisienne de Banque)</li><li>BNA (Banque Nationale Agricole)</li><li>Attijari Bank Tunisie</li><li>Amen Bank</li><li>UIB (Union Internationale de Banques)</li><li>BH Bank</li><li>ATB (Arab Tunisian Bank)</li><li>Banque de Tunisie</li><li>UBCI</li><li>Banque Zitouna</li><li>QNB Tunisia</li><li>Wifak International Bank</li><li>Al Baraka Bank Tunisia</li><li>BTE (Banque de Tunisie et des Emirats)</li><li>BTK Bank</li><li>La Poste Tunisienne</li><li>D17 (La Poste Tunisienne wallet)</li><li>Flouci</li><li>Sobflous</li><li>ClicToPay</li><li>Tunisie Telecom</li><li>Ooredoo (Tunisie and Algerie)</li><li>Orange Tunisie</li><li>CNSS Tunisie</li><li>CNAM</li><li>Ministere des Finances / Jibaya</li><li>STEG</li><li>SONEDE</li><li>Tunisair</li><li>SNCFT</li></ul></div><div class="country"><h3>Morocco <span class="sub">9</span></h3><ul><li>Attijariwafa bank</li><li>CIH Bank</li><li>Bank of Africa (Maroc)</li><li>Barid Al-Maghrib / Al Barid Bank</li><li>Maroc Telecom</li><li>inwi</li><li>CMI (Centre Monetique Interbancaire)</li><li>DGI Maroc</li><li>Royal Air Maroc</li></ul></div><div class="country"><h3>Algeria <span class="sub">5</span></h3><ul><li>Algerie Poste / BaridiMob</li><li>Mobilis</li><li>Djezzy</li><li>CPA (Credit Populaire d&#x27;Algerie)</li><li>Air Algerie</li></ul></div></div>
+    </section>
+
+    <section class="method" aria-labelledby="method-title">
+      <h2 id="method-title">How it works</h2>
+      <p>Each new domain or certificate name is compared with every brand. Exact names, look-alike Unicode letters, leetspeak and typos score points, and so do the words phishing kits add (login, colis, facture, remboursement), country hints and heavily abused TLDs. Every point is written down, so you can see exactly why a domain was flagged. Official domains are never flagged.</p>
+      <p>The watch is passive: it reads public feeds and certificate logs and never visits, scans or touches a suspected site. Report anything you confirm to the brand and to your national CERT.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>Built and maintained by <a href="https://rayenskhiri.online">Rayen Skhiri</a>. Open source under the MIT license. Page generated 2026-10-23 01:13 UTC.</span>
+    <button class="theme" type="button" id="theme">Switch theme</button>
+  </footer>
+</div>
+<script>
+(function () {
+  document.querySelectorAll('button.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = document.getElementById(btn.dataset.target).textContent;
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy query'; }, 1600); };
+      if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, function () { btn.textContent = 'Select and copy'; }); }
+    });
+  });
+  var root = document.documentElement, t = document.getElementById('theme');
+  try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  t.addEventListener('click', function () {
+    var cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

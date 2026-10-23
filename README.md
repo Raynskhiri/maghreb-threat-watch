@@ -2,7 +2,8 @@
 
 <p align="center">
   <b>Open-source early warning for lookalike and phishing domains targeting North African brands.</b><br>
-  Banks, telecoms, postal services and government portals in Tunisia, Morocco and Algeria.
+  Banks, telecoms, postal services and government portals in Tunisia, Morocco and Algeria.<br>
+  <b>Live dashboard: <a href="https://threatwatch.rayenskhiri.online">threatwatch.rayenskhiri.online</a></b>
 </p>
 
 <p align="center">
@@ -118,6 +119,7 @@ python -m mtw demo                                # offline demo on synthetic da
 python -m mtw check biat-secure-login.xyz         # explain one domain
 python -m mtw run --sources openphish,whoisds     # real run, writes reports/ feeds/ hunts/
 python -m mtw run --sources none --input my_dns_export.txt   # score your own list
+python -m mtw site                                # render the public dashboard into site/
 ```
 
 ## Run it daily for free (GitHub Actions)
@@ -125,7 +127,8 @@ python -m mtw run --sources none --input my_dns_export.txt   # score your own li
 1. **Fork** this repository.
 2. Go to **Actions** and enable workflows.
 3. *(Optional)* Add a free [abuse.ch Auth-Key](https://auth.abuse.ch/) as a repository secret named `URLHAUS_AUTH_KEY` to enable URLhaus.
-4. That's it. Every morning at 06:41 Tunis time the **Daily watch** workflow runs, commits the results, and opens an issue if it finds something high-confidence. Trigger it any time from **Actions → Daily watch → Run workflow**.
+4. *(Optional)* To publish the dashboard on Vercel, add a `VERCEL_TOKEN` secret and change `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` in `.github/workflows/watch.yml` to your own. Without the secret, the dashboard is still built into `site/` and committed, so any static host (GitHub Pages, Netlify) can serve it.
+5. That's it. Every morning at 06:41 Tunis time the **Daily watch** workflow runs, commits the results, and opens an issue if it finds something high-confidence. Trigger it any time from **Actions → Daily watch → Run workflow**.
 
 ## Outputs
 
@@ -137,6 +140,8 @@ python -m mtw run --sources none --input my_dns_export.txt   # score your own li
 | `hunts/latest.xql` | Cortex XDR / XSIAM query over DNS and network events | SOC teams on Palo Alto |
 | `hunts/latest.spl` | Splunk `tstats` query on the CIM Network_Resolution model | SOC teams on Splunk |
 | `data/findings.jsonl` | Full history with scores and reasons | Your own analysis |
+| `data/runs.jsonl` | One line per run: what each source returned | Monitoring the watch itself |
+| `site/` | Static public dashboard (the page at threatwatch.rayenskhiri.online) | Anyone, no login |
 
 Sample hunt for Cortex XDR:
 
@@ -177,7 +182,7 @@ config case_sensitive = false
 
 ```text
 config/          brands.yml, settings.yml (lures, TLDs, thresholds), allowlist.txt
-mtw/             normalize (homoglyphs, leet), domains, matcher (scoring), pipeline, report, cli
+mtw/             normalize (homoglyphs, leet), domains, matcher (scoring), pipeline, report, site, cli
 mtw/collectors/  crt.sh, OpenPhish, WhoisDS, URLhaus, local files
 tests/           80+ tests, including real-world false positives
 .github/         daily watch and test workflows
@@ -185,6 +190,6 @@ tests/           80+ tests, including real-world false positives
 
 ## Author
 
-Built by **[Rayen Skhiri](https://github.com/Raynskhiri)** ([LinkedIn](https://linkedin.com/in/rayen-skhiri)), SOC Analyst L2/L3 and web application security engineer in Tunisia. CRTP. Questions, false positives or brands to add: open an issue.
+Built by **[Rayen Skhiri](https://rayenskhiri.online)** ([GitHub](https://github.com/Raynskhiri), [LinkedIn](https://linkedin.com/in/rayen-skhiri)), SOC Analyst L2/L3 and web application security engineer in Tunisia. CRTP. Questions, false positives or brands to add: open an issue.
 
 <sub>MIT licensed. Data sources keep their own terms: crt.sh, OpenPhish community feed, WhoisDS free list, abuse.ch URLhaus.</sub>

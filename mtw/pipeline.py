@@ -182,4 +182,9 @@ def run(*, root: Path, brands: list[Brand], settings: Settings, allowlist: set[s
         sources={r.name: {"status": r.status, "items": len(r.observations), "detail": r.detail} for r in results},
     )
     (out_dir / "summary.json").write_text(json.dumps(summary.__dict__, indent=2) + "\n", encoding="utf-8")
+
+    # One line per run, kept in the repo so the public site can show source health.
+    if use_state:
+        with (root / "data" / "runs.jsonl").open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(summary.__dict__, ensure_ascii=False) + "\n")
     return summary
