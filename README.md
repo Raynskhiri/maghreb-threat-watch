@@ -8,6 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/tests.yml"><img src="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/tests.yml/badge.svg" alt="Tests"></a>
+  <a href="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/security.yml"><img src="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/security.yml/badge.svg" alt="Security"></a>
   <a href="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/watch.yml"><img src="https://github.com/Raynskhiri/maghreb-threat-watch/actions/workflows/watch.yml/badge.svg" alt="Daily watch"></a>
   <img src="https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/license-MIT-green" alt="MIT">
