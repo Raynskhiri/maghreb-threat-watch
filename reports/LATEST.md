@@ -1,4 +1,4 @@
-# Maghreb Threat Watch | 2026-10-28
+# Maghreb Threat Watch | 2026-10-29
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
@@ -11,10 +11,10 @@ Checked 71,300 domains and URLs.
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 930.2s | 4/67 queries failed (crt.sh is often overloaded) |
+| crt.sh | ok | 0 | 929.1s | 8/67 queries failed (crt.sh is often overloaded) |
 | openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 1.9s | newly registered on 2026-10-27 |
-| urlhaus | ok | 1,000 | 1.0s |  |
+| whoisds | ok | 70,000 | 2.5s | newly registered on 2026-10-28 |
+| urlhaus | ok | 1,000 | 1.2s |  |
 
 ## Hunt for these in your environment
 
