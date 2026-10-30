@@ -1,2 +1,3 @@
 # Maghreb Threat Watch: suspected lookalike/phishing domains (medium and high)
-# Updated 2026-10-29 | rolling 30 days | verify before blocking
+# Updated 2026-10-30 | rolling 30 days | verify before blocking
+biat-quiltexpo.com

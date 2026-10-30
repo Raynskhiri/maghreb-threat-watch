@@ -1,1 +1,8 @@
-``` Maghreb Threat Watch: no medium or high findings in the last 30 days. ```
+``` Maghreb Threat Watch hunt | generated 2026-10-30 | 1 domains ```
+``` Needs DNS data mapped to the CIM Network_Resolution data model. ```
+| tstats summariesonly=false count min(_time) as first_seen max(_time) as last_seen
+    from datamodel=Network_Resolution
+    where DNS.query IN ("biat-quiltexpo.com", "*.biat-quiltexpo.com")
+    by DNS.src DNS.query
+| convert ctime(first_seen) ctime(last_seen)
+| sort - count

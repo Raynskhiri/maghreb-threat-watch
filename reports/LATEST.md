@@ -1,9 +1,9 @@
-# Maghreb Threat Watch | 2026-10-29
+# Maghreb Threat Watch | 2026-10-30
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**No new suspicious domains today.**
+**1 new suspicious domain:** 🟠 **1 medium**
 
 Checked 71,300 domains and URLs.
 
@@ -11,10 +11,20 @@ Checked 71,300 domains and URLs.
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 929.1s | 8/67 queries failed (crt.sh is often overloaded) |
-| openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 2.5s | newly registered on 2026-10-28 |
+| crt.sh | ok | 0 | 935.2s | 4/67 queries failed (crt.sh is often overloaded) |
+| openphish | ok | 300 | 0.1s |  |
+| whoisds | ok | 70,000 | 2.2s | newly registered on 2026-10-29 |
 | urlhaus | ok | 1,000 | 1.2s |  |
+
+## Most targeted today
+
+- BIAT: 1
+
+## 🟠 Medium
+
+| Score | Domain | Brand | Why it was flagged | Seen in |
+|---:|---|---|---|---|
+| 50 | biat-quiltexpo[.]com | BIAT (TN) | exact match on 'biat' in 'biat' (+50) | whoisds |
 
 ## Hunt for these in your environment
 

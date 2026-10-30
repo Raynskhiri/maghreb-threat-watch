@@ -1,1 +1,2 @@
 first_seen,domain,host,brand,country,sector,severity,score,match_type,sources
+2026-10-30,biat-quiltexpo.com,biat-quiltexpo.com,BIAT,TN,bank,medium,50,exact,whoisds
