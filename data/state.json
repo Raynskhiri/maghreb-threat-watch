@@ -1,9 +1,27 @@
 {
  "hosts": {
+  "81472.my": {
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31",
+   "score": 63,
+   "severity": "medium"
+  },
+  "api.attijariwafabank.com.eg": {
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31",
+   "score": 68,
+   "severity": "medium"
+  },
   "biat-quiltexpo.com": {
    "first_seen": "2026-10-30",
    "last_seen": "2026-10-30",
    "score": 50,
+   "severity": "medium"
+  },
+  "www.api.attijariwafabank.com.eg": {
+   "first_seen": "2026-10-31",
+   "last_seen": "2026-10-31",
+   "score": 68,
    "severity": "medium"
   }
  }

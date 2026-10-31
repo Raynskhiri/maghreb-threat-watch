@@ -1,3 +1,5 @@
 # Maghreb Threat Watch: suspected lookalike/phishing domains (medium and high)
-# Updated 2026-10-30 | rolling 30 days | verify before blocking
+# Updated 2026-10-31 | rolling 30 days | verify before blocking
+81472.my
+attijariwafabank.com.eg
 biat-quiltexpo.com

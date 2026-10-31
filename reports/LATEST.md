@@ -1,30 +1,33 @@
-# Maghreb Threat Watch | 2026-10-30
+# Maghreb Threat Watch | 2026-10-31
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**1 new suspicious domain:** 🟠 **1 medium**
+**3 new suspicious domains:** 🟠 **3 medium**
 
-Checked 71,300 domains and URLs.
+Checked 71,310 domains and URLs.
 
 ## Sources
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 935.2s | 4/67 queries failed (crt.sh is often overloaded) |
-| openphish | ok | 300 | 0.1s |  |
-| whoisds | ok | 70,000 | 2.2s | newly registered on 2026-10-29 |
-| urlhaus | ok | 1,000 | 1.2s |  |
+| crt.sh | ok | 10 | 1506.7s | time budget: 64/67 keywords searched, the rest rotate in tomorrow; 9/64 queries failed (crt.sh is often overloaded) |
+| openphish | ok | 300 | 0.0s |  |
+| whoisds | ok | 70,000 | 2.2s | newly registered on 2026-10-30 |
+| urlhaus | ok | 1,000 | 1.5s |  |
 
 ## Most targeted today
 
+- Attijariwafa bank: 2
 - BIAT: 1
 
 ## 🟠 Medium
 
 | Score | Domain | Brand | Why it was flagged | Seen in |
 |---:|---|---|---|---|
-| 50 | biat-quiltexpo[.]com | BIAT (TN) | exact match on 'biat' in 'biat' (+50) | whoisds |
+| 68 | api[.]attijariwafabank[.]com[.]eg | Attijariwafa bank (MA) | contains match on 'attijariwafa' in 'attijariwafabank' (+48)<br>embeds official domain attijariwafabank.com (+20) | crt.sh |
+| 68 | www[.]api[.]attijariwafabank[.]com[.]eg | Attijariwafa bank (MA) | contains match on 'attijariwafa' in 'attijariwafabank' (+48)<br>embeds official domain attijariwafabank.com (+20) | crt.sh |
+| 63 | 81472[.]my | BIAT (TN) | leet match on 'biat' in '81472' (+48)<br>deceptive spelling (+15) | whoisds |
 
 ## Hunt for these in your environment
 

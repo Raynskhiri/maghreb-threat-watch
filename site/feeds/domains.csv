@@ -1,2 +1,5 @@
 first_seen,domain,host,brand,country,sector,severity,score,match_type,sources
+2026-10-31,81472.my,81472.my,BIAT,TN,bank,medium,63,leet,whoisds
+2026-10-31,attijariwafabank.com.eg,api.attijariwafabank.com.eg,Attijariwafa bank,MA,bank,medium,68,contains,crt.sh
+2026-10-31,attijariwafabank.com.eg,www.api.attijariwafabank.com.eg,Attijariwafa bank,MA,bank,medium,68,contains,crt.sh
 2026-10-30,biat-quiltexpo.com,biat-quiltexpo.com,BIAT,TN,bank,medium,50,exact,whoisds
