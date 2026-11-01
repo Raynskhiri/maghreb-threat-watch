@@ -1,33 +1,33 @@
-# Maghreb Threat Watch | 2026-10-31
+# Maghreb Threat Watch | 2026-11-01
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**3 new suspicious domains:** 🟠 **3 medium**
+**1 new suspicious domain:** 🟡 **1 low**
 
-Checked 71,310 domains and URLs.
+Checked 71,303 domains and URLs.
 
 ## Sources
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 10 | 1506.7s | time budget: 64/67 keywords searched, the rest rotate in tomorrow; 9/64 queries failed (crt.sh is often overloaded) |
+| crt.sh | ok | 3 | 1022.7s | 8/67 queries failed (crt.sh is often overloaded) |
 | openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 2.2s | newly registered on 2026-10-30 |
-| urlhaus | ok | 1,000 | 1.5s |  |
+| whoisds | ok | 70,000 | 2.0s | newly registered on 2026-10-31 |
+| urlhaus | ok | 1,000 | 0.9s |  |
 
 ## Most targeted today
 
-- Attijariwafa bank: 2
-- BIAT: 1
+- ATB (Arab Tunisian Bank): 1
 
-## 🟠 Medium
+<details>
+<summary>🟡 Low confidence (1): weak signals worth a glance</summary>
 
 | Score | Domain | Brand | Why it was flagged | Seen in |
 |---:|---|---|---|---|
-| 68 | api[.]attijariwafabank[.]com[.]eg | Attijariwafa bank (MA) | contains match on 'attijariwafa' in 'attijariwafabank' (+48)<br>embeds official domain attijariwafabank.com (+20) | crt.sh |
-| 68 | www[.]api[.]attijariwafabank[.]com[.]eg | Attijariwafa bank (MA) | contains match on 'attijariwafa' in 'attijariwafabank' (+48)<br>embeds official domain attijariwafabank.com (+20) | crt.sh |
-| 63 | 81472[.]my | BIAT (TN) | leet match on 'biat' in '81472' (+48)<br>deceptive spelling (+15) | whoisds |
+| 37 | atb777app[.]in | ATB (Arab Tunisian Bank) (TN) | weak-affix match on 'atb' in 'atb777app' (+22)<br>lure words ['app'] (+15) | whoisds |
+
+</details>
 
 ## Hunt for these in your environment
 
