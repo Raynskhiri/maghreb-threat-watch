@@ -1,33 +1,20 @@
-# Maghreb Threat Watch | 2026-11-01
+# Maghreb Threat Watch | 2026-11-02
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**1 new suspicious domain:** 🟡 **1 low**
+**No new suspicious domains today.**
 
-Checked 71,303 domains and URLs.
+Checked 71,305 domains and URLs. 2 already-reported domains were seen again and not repeated below.
 
 ## Sources
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 3 | 1022.7s | 8/67 queries failed (crt.sh is often overloaded) |
-| openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 2.0s | newly registered on 2026-10-31 |
-| urlhaus | ok | 1,000 | 0.9s |  |
-
-## Most targeted today
-
-- ATB (Arab Tunisian Bank): 1
-
-<details>
-<summary>🟡 Low confidence (1): weak signals worth a glance</summary>
-
-| Score | Domain | Brand | Why it was flagged | Seen in |
-|---:|---|---|---|---|
-| 37 | atb777app[.]in | ATB (Arab Tunisian Bank) (TN) | weak-affix match on 'atb' in 'atb777app' (+22)<br>lure words ['app'] (+15) | whoisds |
-
-</details>
+| crt.sh | ok | 5 | 1029.1s | 7/67 queries failed (crt.sh is often overloaded) |
+| openphish | ok | 300 | 0.1s |  |
+| whoisds | ok | 70,000 | 32.8s | newly registered on 2026-11-01 |
+| urlhaus | ok | 1,000 | 1.1s |  |
 
 ## Hunt for these in your environment
 
