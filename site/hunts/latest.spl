@@ -1,4 +1,4 @@
-``` Maghreb Threat Watch hunt | generated 2026-11-02 | 3 domains ```
+``` Maghreb Threat Watch hunt | generated 2026-11-03 | 3 domains ```
 ``` Needs DNS data mapped to the CIM Network_Resolution data model. ```
 | tstats summariesonly=false count min(_time) as first_seen max(_time) as last_seen
     from datamodel=Network_Resolution
