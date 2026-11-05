@@ -1,10 +1,10 @@
 {
- "last_run_day": "2026-11-04",
+ "last_run_day": "2026-11-05",
  "domains_checked_last_run": 71303,
  "new_last_run": 0,
  "findings_30d": 4,
  "high_30d": 0,
- "runs": 15,
+ "runs": 16,
  "brands": 45,
  "countries": 3,
  "sources_ok": [
