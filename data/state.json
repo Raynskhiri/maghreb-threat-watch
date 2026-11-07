@@ -18,11 +18,23 @@
    "score": 37,
    "severity": "low"
   },
+  "biat-bonuss.sbs": {
+   "first_seen": "2026-11-07",
+   "last_seen": "2026-11-07",
+   "score": 60,
+   "severity": "medium"
+  },
   "biat-quiltexpo.com": {
    "first_seen": "2026-10-30",
    "last_seen": "2026-10-30",
    "score": 50,
    "severity": "medium"
+  },
+  "i-am-auth.com": {
+   "first_seen": "2026-11-07",
+   "last_seen": "2026-11-07",
+   "score": 37,
+   "severity": "low"
   },
   "www.api.attijariwafabank.com.eg": {
    "first_seen": "2026-10-31",

@@ -1,20 +1,40 @@
-# Maghreb Threat Watch | 2026-11-06
+# Maghreb Threat Watch | 2026-11-07
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**No new suspicious domains today.**
+**2 new suspicious domains:** 🟠 **1 medium**, 🟡 **1 low**
 
-Checked 71,213 domains and URLs.
+Checked 71,300 domains and URLs.
 
 ## Sources
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 1507.8s | time budget: 61/67 keywords searched, the rest rotate in tomorrow; 32/61 queries failed (crt.sh is often overloaded) |
-| openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 2.0s | newly registered on 2026-11-05 |
-| urlhaus | ok | 913 | 0.8s |  |
+| crt.sh | ok | 0 | 1357.7s | 15/67 queries failed (crt.sh is often overloaded) |
+| openphish | ok | 300 | 0.1s |  |
+| whoisds | ok | 70,000 | 2.2s | newly registered on 2026-11-06 |
+| urlhaus | ok | 1,000 | 1.5s |  |
+
+## Most targeted today
+
+- BIAT: 1
+- Maroc Telecom: 1
+
+## 🟠 Medium
+
+| Score | Domain | Brand | Why it was flagged | Seen in |
+|---:|---|---|---|---|
+| 60 | biat-bonuss[.]sbs | BIAT (TN) | exact match on 'biat' in 'biat' (+50)<br>abused TLD .sbs (+10) | whoisds |
+
+<details>
+<summary>🟡 Low confidence (1): weak signals worth a glance</summary>
+
+| Score | Domain | Brand | Why it was flagged | Seen in |
+|---:|---|---|---|---|
+| 37 | i-am-auth[.]com | Maroc Telecom (MA) | weak-affix match on 'iam' in 'iamauth' (+22)<br>lure words ['auth'] (+15) | whoisds |
+
+</details>
 
 ## Hunt for these in your environment
 
