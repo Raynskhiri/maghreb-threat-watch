@@ -1,5 +1,11 @@
 {
  "hosts": {
+  "6x8147.xyz": {
+   "first_seen": "2026-11-08",
+   "last_seen": "2026-11-08",
+   "score": 73,
+   "severity": "high"
+  },
   "81472.my": {
    "first_seen": "2026-10-31",
    "last_seen": "2026-10-31",
@@ -17,6 +23,12 @@
    "last_seen": "2026-11-01",
    "score": 37,
    "severity": "low"
+  },
+  "atbclientsupport.com": {
+   "first_seen": "2026-11-08",
+   "last_seen": "2026-11-08",
+   "score": 47,
+   "severity": "medium"
   },
   "biat-bonuss.sbs": {
    "first_seen": "2026-11-07",

@@ -1,5 +1,7 @@
 # Maghreb Threat Watch: suspected lookalike/phishing domains (medium and high)
-# Updated 2026-11-07 | rolling 30 days | verify before blocking
+# Updated 2026-11-08 | rolling 30 days | verify before blocking
+atbclientsupport.com
+6x8147.xyz
 biat-bonuss.sbs
 81472.my
 attijariwafabank.com.eg

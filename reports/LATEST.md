@@ -1,9 +1,9 @@
-# Maghreb Threat Watch | 2026-11-07
+# Maghreb Threat Watch | 2026-11-08
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**2 new suspicious domains:** 🟠 **1 medium**, 🟡 **1 low**
+**2 new suspicious domains:** 🔴 **1 high**, 🟠 **1 medium**
 
 Checked 71,300 domains and URLs.
 
@@ -11,30 +11,27 @@ Checked 71,300 domains and URLs.
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 1357.7s | 15/67 queries failed (crt.sh is often overloaded) |
-| openphish | ok | 300 | 0.1s |  |
-| whoisds | ok | 70,000 | 2.2s | newly registered on 2026-11-06 |
-| urlhaus | ok | 1,000 | 1.5s |  |
+| crt.sh | ok | 0 | 1353.6s | 16/67 queries failed (crt.sh is often overloaded) |
+| openphish | ok | 300 | 0.0s |  |
+| whoisds | ok | 70,000 | 2.4s | newly registered on 2026-11-07 |
+| urlhaus | ok | 1,000 | 1.1s |  |
 
 ## Most targeted today
 
 - BIAT: 1
-- Maroc Telecom: 1
+- ATB (Arab Tunisian Bank): 1
+
+## 🔴 High
+
+| Score | Domain | Brand | Why it was flagged | Seen in |
+|---:|---|---|---|---|
+| 73 | 6x8147[.]xyz | BIAT (TN) | leet match on 'biat' in '6x8147' (+48)<br>deceptive spelling (+15)<br>abused TLD .xyz (+10) | whoisds |
 
 ## 🟠 Medium
 
 | Score | Domain | Brand | Why it was flagged | Seen in |
 |---:|---|---|---|---|
-| 60 | biat-bonuss[.]sbs | BIAT (TN) | exact match on 'biat' in 'biat' (+50)<br>abused TLD .sbs (+10) | whoisds |
-
-<details>
-<summary>🟡 Low confidence (1): weak signals worth a glance</summary>
-
-| Score | Domain | Brand | Why it was flagged | Seen in |
-|---:|---|---|---|---|
-| 37 | i-am-auth[.]com | Maroc Telecom (MA) | weak-affix match on 'iam' in 'iamauth' (+22)<br>lure words ['auth'] (+15) | whoisds |
-
-</details>
+| 47 | atbclientsupport[.]com | ATB (Arab Tunisian Bank) (TN) | weak-affix match on 'atb' in 'atbclientsupport' (+22)<br>lure words ['client', 'clients', 'support'] (+25) | whoisds |
 
 ## Hunt for these in your environment
 
