@@ -1,8 +1,8 @@
-``` Maghreb Threat Watch hunt | generated 2026-11-08 | 6 domains ```
+``` Maghreb Threat Watch hunt | generated 2026-11-09 | 7 domains ```
 ``` Needs DNS data mapped to the CIM Network_Resolution data model. ```
 | tstats summariesonly=false count min(_time) as first_seen max(_time) as last_seen
     from datamodel=Network_Resolution
-    where DNS.query IN ("atbclientsupport.com", "*.atbclientsupport.com", "6x8147.xyz", "*.6x8147.xyz", "biat-bonuss.sbs", "*.biat-bonuss.sbs", "81472.my", "*.81472.my", "attijariwafabank.com.eg", "*.attijariwafabank.com.eg", "biat-quiltexpo.com", "*.biat-quiltexpo.com")
+    where DNS.query IN ("cannabissamenbank.ch", "*.cannabissamenbank.ch", "atbclientsupport.com", "*.atbclientsupport.com", "6x8147.xyz", "*.6x8147.xyz", "biat-bonuss.sbs", "*.biat-bonuss.sbs", "81472.my", "*.81472.my", "attijariwafabank.com.eg", "*.attijariwafabank.com.eg", "biat-quiltexpo.com", "*.biat-quiltexpo.com")
     by DNS.src DNS.query
 | convert ctime(first_seen) ctime(last_seen)
 | sort - count

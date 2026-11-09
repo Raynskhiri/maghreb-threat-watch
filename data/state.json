@@ -42,6 +42,12 @@
    "score": 50,
    "severity": "medium"
   },
+  "cannabissamenbank.ch": {
+   "first_seen": "2026-11-09",
+   "last_seen": "2026-11-09",
+   "score": 48,
+   "severity": "medium"
+  },
   "i-am-auth.com": {
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07",
