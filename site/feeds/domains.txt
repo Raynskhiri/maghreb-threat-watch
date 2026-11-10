@@ -1,5 +1,6 @@
 # Maghreb Threat Watch: suspected lookalike/phishing domains (medium and high)
-# Updated 2026-11-09 | rolling 30 days | verify before blocking
+# Updated 2026-11-10 | rolling 30 days | verify before blocking
+wifakepay.com
 cannabissamenbank.ch
 atbclientsupport.com
 6x8147.xyz

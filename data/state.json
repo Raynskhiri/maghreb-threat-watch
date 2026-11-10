@@ -54,6 +54,12 @@
    "score": 37,
    "severity": "low"
   },
+  "wifakepay.com": {
+   "first_seen": "2026-11-10",
+   "last_seen": "2026-11-10",
+   "score": 60,
+   "severity": "medium"
+  },
   "www.api.attijariwafabank.com.eg": {
    "first_seen": "2026-10-31",
    "last_seen": "2026-11-05",
