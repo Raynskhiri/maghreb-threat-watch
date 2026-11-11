@@ -1,9 +1,9 @@
-# Maghreb Threat Watch | 2026-11-10
+# Maghreb Threat Watch | 2026-11-11
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**1 new suspicious domain:** 🟠 **1 medium**
+**No new suspicious domains today.**
 
 Checked 71,300 domains and URLs.
 
@@ -11,20 +11,10 @@ Checked 71,300 domains and URLs.
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 1073.2s | 8/67 queries failed (crt.sh is often overloaded) |
+| crt.sh | ok | 0 | 1251.2s | 9/67 queries failed (crt.sh is often overloaded) |
 | openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 34.6s | newly registered on 2026-11-09 |
-| urlhaus | ok | 1,000 | 0.8s |  |
-
-## Most targeted today
-
-- Wifak International Bank: 1
-
-## 🟠 Medium
-
-| Score | Domain | Brand | Why it was flagged | Seen in |
-|---:|---|---|---|---|
-| 60 | wifakepay[.]com | Wifak International Bank (TN) | affix match on 'wifak' in 'wifakepay' (+45)<br>lure words ['pay'] (+15) | whoisds |
+| whoisds | ok | 70,000 | 2.3s | newly registered on 2026-11-10 |
+| urlhaus | ok | 1,000 | 1.3s |  |
 
 ## Hunt for these in your environment
 
