@@ -1,9 +1,9 @@
-# Maghreb Threat Watch | 2026-11-12
+# Maghreb Threat Watch | 2026-11-13
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**No new suspicious domains today.**
+**1 new suspicious domain:** 🟡 **1 low**
 
 Checked 71,300 domains and URLs.
 
@@ -11,10 +11,23 @@ Checked 71,300 domains and URLs.
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 1331.9s | 11/67 queries failed (crt.sh is often overloaded) |
-| openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 2.1s | newly registered on 2026-11-11 |
-| urlhaus | ok | 1,000 | 0.9s |  |
+| crt.sh | ok | 0 | 990.0s | 6/67 queries failed (crt.sh is often overloaded) |
+| openphish | ok | 300 | 0.1s |  |
+| whoisds | ok | 70,000 | 1.9s | newly registered on 2026-11-12 |
+| urlhaus | ok | 1,000 | 1.1s |  |
+
+## Most targeted today
+
+- CNAM: 1
+
+<details>
+<summary>🟡 Low confidence (1): weak signals worth a glance</summary>
+
+| Score | Domain | Brand | Why it was flagged | Seen in |
+|---:|---|---|---|---|
+| 37 | app-cname-node13[.]com | CNAM (TN) | weak-affix match on 'cnam' in 'cname' (+22)<br>lure words ['app'] (+15) | whoisds |
+
+</details>
 
 ## Hunt for these in your environment
 

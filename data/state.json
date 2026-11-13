@@ -18,6 +18,12 @@
    "score": 68,
    "severity": "medium"
   },
+  "app-cname-node13.com": {
+   "first_seen": "2026-11-13",
+   "last_seen": "2026-11-13",
+   "score": 37,
+   "severity": "low"
+  },
   "atb777app.in": {
    "first_seen": "2026-11-01",
    "last_seen": "2026-11-01",
