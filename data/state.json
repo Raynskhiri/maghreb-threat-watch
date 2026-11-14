@@ -48,6 +48,12 @@
    "score": 50,
    "severity": "medium"
   },
+  "caabank.com": {
+   "first_seen": "2026-11-14",
+   "last_seen": "2026-11-14",
+   "score": 38,
+   "severity": "low"
+  },
   "cannabissamenbank.ch": {
    "first_seen": "2026-11-09",
    "last_seen": "2026-11-09",

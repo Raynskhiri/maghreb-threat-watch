@@ -1,31 +1,31 @@
-# Maghreb Threat Watch | 2026-11-13
+# Maghreb Threat Watch | 2026-11-14
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
 **1 new suspicious domain:** 🟡 **1 low**
 
-Checked 71,300 domains and URLs.
+Checked 71,248 domains and URLs.
 
 ## Sources
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 990.0s | 6/67 queries failed (crt.sh is often overloaded) |
+| crt.sh | ok | 0 | 1301.5s | 11/67 queries failed (crt.sh is often overloaded) |
 | openphish | ok | 300 | 0.1s |  |
-| whoisds | ok | 70,000 | 1.9s | newly registered on 2026-11-12 |
-| urlhaus | ok | 1,000 | 1.1s |  |
+| whoisds | ok | 70,000 | 2.1s | newly registered on 2026-11-13 |
+| urlhaus | ok | 948 | 1.1s |  |
 
 ## Most targeted today
 
-- CNAM: 1
+- CPA (Credit Populaire d'Algerie): 1
 
 <details>
 <summary>🟡 Low confidence (1): weak signals worth a glance</summary>
 
 | Score | Domain | Brand | Why it was flagged | Seen in |
 |---:|---|---|---|---|
-| 37 | app-cname-node13[.]com | CNAM (TN) | weak-affix match on 'cnam' in 'cname' (+22)<br>lure words ['app'] (+15) | whoisds |
+| 38 | caabank[.]com | CPA (Credit Populaire d'Algerie) (DZ) | typo match on 'cpabank' in 'caabank' (+38) | whoisds |
 
 </details>
 
