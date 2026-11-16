@@ -1,4 +1,6 @@
 first_seen,domain,host,brand,country,sector,severity,score,match_type,sources
+2026-11-16,attijariwafabank.cn,attijariwafabank.cn,Attijariwafa bank,MA,bank,medium,48,contains,whoisds
+2026-11-16,ubci.in,ubci.in,UBCI,TN,bank,medium,50,exact,whoisds
 2026-11-10,wifakepay.com,wifakepay.com,Wifak International Bank,TN,bank,medium,60,affix,whoisds
 2026-11-09,cannabissamenbank.ch,cannabissamenbank.ch,Amen Bank,TN,bank,medium,48,contains,whoisds
 2026-11-08,atbclientsupport.com,atbclientsupport.com,ATB (Arab Tunisian Bank),TN,bank,medium,47,weak-affix,whoisds

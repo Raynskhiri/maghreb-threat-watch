@@ -1,5 +1,7 @@
 # Maghreb Threat Watch: suspected lookalike/phishing domains (medium and high)
-# Updated 2026-11-15 | rolling 30 days | verify before blocking
+# Updated 2026-11-16 | rolling 30 days | verify before blocking
+attijariwafabank.cn
+ubci.in
 wifakepay.com
 cannabissamenbank.ch
 atbclientsupport.com

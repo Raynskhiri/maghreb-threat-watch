@@ -36,6 +36,12 @@
    "score": 47,
    "severity": "medium"
   },
+  "attijariwafabank.cn": {
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16",
+   "score": 48,
+   "severity": "medium"
+  },
   "biat-bonuss.sbs": {
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07",
@@ -65,6 +71,12 @@
    "last_seen": "2026-11-07",
    "score": 37,
    "severity": "low"
+  },
+  "ubci.in": {
+   "first_seen": "2026-11-16",
+   "last_seen": "2026-11-16",
+   "score": 50,
+   "severity": "medium"
   },
   "wifakepay.com": {
    "first_seen": "2026-11-10",
