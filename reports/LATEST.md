@@ -1,32 +1,20 @@
-# Maghreb Threat Watch | 2026-11-16
+# Maghreb Threat Watch | 2026-11-17
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**2 new suspicious domains:** 🟠 **2 medium**
+**No new suspicious domains today.**
 
-Checked 71,300 domains and URLs.
+Checked 71,255 domains and URLs.
 
 ## Sources
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 1033.4s | 9/67 queries failed (crt.sh is often overloaded) |
+| crt.sh | ok | 0 | 1176.6s | 10/67 queries failed (crt.sh is often overloaded) |
 | openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 2.3s | newly registered on 2026-11-15 |
-| urlhaus | ok | 1,000 | 1.0s |  |
-
-## Most targeted today
-
-- UBCI: 1
-- Attijariwafa bank: 1
-
-## 🟠 Medium
-
-| Score | Domain | Brand | Why it was flagged | Seen in |
-|---:|---|---|---|---|
-| 50 | ubci[.]in | UBCI (TN) | exact match on 'ubci' in 'ubci' (+50) | whoisds |
-| 48 | attijariwafabank[.]cn | Attijariwafa bank (MA) | contains match on 'attijariwafa' in 'attijariwafabank' (+48) | whoisds |
+| whoisds | ok | 70,000 | 2.1s | newly registered on 2026-11-16 |
+| urlhaus | ok | 955 | 1.5s |  |
 
 ## Hunt for these in your environment
 
