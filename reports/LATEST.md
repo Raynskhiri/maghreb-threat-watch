@@ -1,9 +1,9 @@
-# Maghreb Threat Watch | 2026-11-18
+# Maghreb Threat Watch | 2026-11-19
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**No new suspicious domains today.**
+**1 new suspicious domain:** 🟠 **1 medium**
 
 Checked 71,300 domains and URLs.
 
@@ -11,10 +11,20 @@ Checked 71,300 domains and URLs.
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 1173.4s | 12/67 queries failed (crt.sh is often overloaded) |
+| crt.sh | ok | 0 | 1050.5s | 10/67 queries failed (crt.sh is often overloaded) |
 | openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 2.8s | newly registered on 2026-11-17 |
-| urlhaus | ok | 1,000 | 1.9s |  |
+| whoisds | ok | 70,000 | 2.3s | newly registered on 2026-11-18 |
+| urlhaus | ok | 1,000 | 1.4s |  |
+
+## Most targeted today
+
+- Amen Bank: 1
+
+## 🟠 Medium
+
+| Score | Domain | Brand | Why it was flagged | Seen in |
+|---:|---|---|---|---|
+| 48 | xiamenbank[.]com | Amen Bank (TN) | contains match on 'amenbank' in 'xiamenbank' (+48) | whoisds |
 
 ## Hunt for these in your environment
 
