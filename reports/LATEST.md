@@ -1,9 +1,9 @@
-# Maghreb Threat Watch | 2026-11-20
+# Maghreb Threat Watch | 2026-11-21
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**No new suspicious domains today.**
+**1 new suspicious domain:** 🟠 **1 medium**
 
 Checked 71,300 domains and URLs.
 
@@ -11,10 +11,20 @@ Checked 71,300 domains and URLs.
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 1055.1s | 8/67 queries failed (crt.sh is often overloaded) |
-| openphish | ok | 300 | 0.1s |  |
-| whoisds | ok | 70,000 | 12.8s | newly registered on 2026-11-19 |
-| urlhaus | ok | 1,000 | 1.4s |  |
+| crt.sh | ok | 0 | 1016.9s | 8/67 queries failed (crt.sh is often overloaded) |
+| openphish | ok | 300 | 0.0s |  |
+| whoisds | ok | 70,000 | 2.1s | newly registered on 2026-11-20 |
+| urlhaus | ok | 1,000 | 1.5s |  |
+
+## Most targeted today
+
+- Ooredoo (Tunisie and Algerie): 1
+
+## 🟠 Medium
+
+| Score | Domain | Brand | Why it was flagged | Seen in |
+|---:|---|---|---|---|
+| 50 | ooredoo-om[.]com | Ooredoo (Tunisie and Algerie) (TN,DZ) | exact match on 'ooredoo' in 'ooredoo' (+50) | whoisds |
 
 ## Hunt for these in your environment
 

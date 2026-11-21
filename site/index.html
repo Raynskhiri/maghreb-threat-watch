@@ -6,7 +6,7 @@
 <title>Maghreb Threat Watch | Phishing lookalikes targeting North Africa</title>
 <meta name="description" content="Daily, open early warning for lookalike and phishing domains targeting banks, telecoms and public services in Tunisia, Morocco and Algeria.">
 <meta property="og:title" content="Maghreb Threat Watch">
-<meta property="og:description" content="No new lookalikes on 20 November 2026. Open early warning for phishing aimed at North Africa.">
+<meta property="og:description" content="1 new suspicious domain on 21 November 2026. Open early warning for phishing aimed at North Africa.">
 <meta property="og:url" content="https://threatwatch.rayenskhiri.online/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,15 +124,16 @@ footer { padding: 28px 0 48px; color: var(--stone); font-size: 0.9rem; display: 
   <main>
     <div class="hero">
       <p class="what">Open early warning for lookalike and phishing domains aimed at North African banks, telecoms, postal services and government portals.</p>
-      <h1>No new lookalikes on 20 November 2026.</h1>
-      <p class="sub">Quiet days are normal. Real campaigns show up a few times a week, and the feed below keeps the last 30 days.</p>
+      <h1>1 new suspicious domain on 21 November 2026.</h1>
+      <p class="sub">Severity: 1 medium.</p>
       <p class="scope">Watching 45 brands in 3 countries. Updated every morning from certificate transparency, newly registered domains and public phishing feeds.</p>
     </div>
 
     <section id="feed" aria-labelledby="feed-title">
       <h2 id="feed-title">Findings, last 30 days</h2>
       <p class="lede">Medium and high confidence only. Domains are defanged: [.] stands for a dot. A finding is a lead to verify, not a verdict.</p>
-      <div class="table-wrap"><table class="findings"><caption class="vh">Medium and high findings, last 30 days</caption><thead><tr><th scope="col">Score</th><th scope="col">Domain</th><th scope="col">Impersonating</th><th scope="col">First seen</th></tr></thead><tbody><tr class="sev-medium"><td class="score"><span class="pill">48</span></td><td class="dom">xiamenbank[.]com<details><summary>Why it was flagged</summary><ul><li>contains match on &#x27;amenbank&#x27; in &#x27;xiamenbank&#x27; (+48)</li></ul></details></td><td>Amen Bank<span class="sub">Tunisia</span></td><td class="when">19 November 2026<span class="sub">whoisds</span></td></tr>
+      <div class="table-wrap"><table class="findings"><caption class="vh">Medium and high findings, last 30 days</caption><thead><tr><th scope="col">Score</th><th scope="col">Domain</th><th scope="col">Impersonating</th><th scope="col">First seen</th></tr></thead><tbody><tr class="sev-medium"><td class="score"><span class="pill">50</span></td><td class="dom">ooredoo-om[.]com<details><summary>Why it was flagged</summary><ul><li>exact match on &#x27;ooredoo&#x27; in &#x27;ooredoo&#x27; (+50)</li></ul></details></td><td>Ooredoo (Tunisie and Algerie)<span class="sub">Tunisia</span></td><td class="when">21 November 2026<span class="sub">whoisds</span></td></tr>
+<tr class="sev-medium"><td class="score"><span class="pill">48</span></td><td class="dom">xiamenbank[.]com<details><summary>Why it was flagged</summary><ul><li>contains match on &#x27;amenbank&#x27; in &#x27;xiamenbank&#x27; (+48)</li></ul></details></td><td>Amen Bank<span class="sub">Tunisia</span></td><td class="when">19 November 2026<span class="sub">whoisds</span></td></tr>
 <tr class="sev-medium"><td class="score"><span class="pill">50</span></td><td class="dom">ubci[.]in<details><summary>Why it was flagged</summary><ul><li>exact match on &#x27;ubci&#x27; in &#x27;ubci&#x27; (+50)</li></ul></details></td><td>UBCI<span class="sub">Tunisia</span></td><td class="when">16 November 2026<span class="sub">whoisds</span></td></tr>
 <tr class="sev-medium"><td class="score"><span class="pill">48</span></td><td class="dom">attijariwafabank[.]cn<details><summary>Why it was flagged</summary><ul><li>contains match on &#x27;attijariwafa&#x27; in &#x27;attijariwafabank&#x27; (+48)</li></ul></details></td><td>Attijariwafa bank<span class="sub">Morocco</span></td><td class="when">16 November 2026<span class="sub">whoisds</span></td></tr>
 <tr class="sev-medium"><td class="score"><span class="pill">60</span></td><td class="dom">wifakepay[.]com<details><summary>Why it was flagged</summary><ul><li>affix match on &#x27;wifak&#x27; in &#x27;wifakepay&#x27; (+45)</li><li>lure words [&#x27;pay&#x27;] (+15)</li></ul></details></td><td>Wifak International Bank<span class="sub">Tunisia</span></td><td class="when">10 November 2026<span class="sub">whoisds</span></td></tr>
@@ -153,15 +154,15 @@ footer { padding: 28px 0 48px; color: var(--stone); font-size: 0.9rem; display: 
       <div class="hunts">
         <div class="hunt">
           <h3>Cortex XDR or XSIAM (XQL) <button class="copy" type="button" data-target="xql">Copy query</button></h3>
-          <pre><code id="xql">// Maghreb Threat Watch hunt | generated 2026-11-20
-// 11 lookalike/phishing domains (medium and high, rolling 30 days)
+          <pre><code id="xql">// Maghreb Threat Watch hunt | generated 2026-11-21
+// 12 lookalike/phishing domains (medium and high, rolling 30 days)
 // Finds endpoints that resolved or connected to any of them, subdomains included.
 // Source: https://github.com/Raynskhiri/maghreb-threat-watch
 config case_sensitive = false
 | dataset = xdr_data
 | filter event_type = ENUM.NETWORK
-| filter dns_query_name ~= &quot;(^|[.])(?:xiamenbank[.]com|attijariwafabank[.]cn|ubci[.]in|wifakepay[.]com|cannabissamenbank[.]ch|atbclientsupport[.]com|6x8147[.]xyz|biat-bonuss[.]sbs|81472[.]my|attijariwafabank[.]com[.]eg|biat-quiltexpo[.]com)$&quot;
-      or action_external_hostname ~= &quot;(^|[.])(?:xiamenbank[.]com|attijariwafabank[.]cn|ubci[.]in|wifakepay[.]com|cannabissamenbank[.]ch|atbclientsupport[.]com|6x8147[.]xyz|biat-bonuss[.]sbs|81472[.]my|attijariwafabank[.]com[.]eg|biat-quiltexpo[.]com)$&quot;
+| filter dns_query_name ~= &quot;(^|[.])(?:ooredoo-om[.]com|xiamenbank[.]com|attijariwafabank[.]cn|ubci[.]in|wifakepay[.]com|cannabissamenbank[.]ch|atbclientsupport[.]com|6x8147[.]xyz|biat-bonuss[.]sbs|81472[.]my|attijariwafabank[.]com[.]eg|biat-quiltexpo[.]com)$&quot;
+      or action_external_hostname ~= &quot;(^|[.])(?:ooredoo-om[.]com|xiamenbank[.]com|attijariwafabank[.]cn|ubci[.]in|wifakepay[.]com|cannabissamenbank[.]ch|atbclientsupport[.]com|6x8147[.]xyz|biat-bonuss[.]sbs|81472[.]my|attijariwafabank[.]com[.]eg|biat-quiltexpo[.]com)$&quot;
 | fields _time, agent_hostname, actor_effective_username, actor_process_image_name,
          dns_query_name, action_external_hostname, action_remote_ip
 | sort desc _time
@@ -169,11 +170,11 @@ config case_sensitive = false
         </div>
         <div class="hunt">
           <h3>Splunk (CIM Network_Resolution) <button class="copy" type="button" data-target="spl">Copy query</button></h3>
-          <pre><code id="spl">``` Maghreb Threat Watch hunt | generated 2026-11-20 | 11 domains ```
+          <pre><code id="spl">``` Maghreb Threat Watch hunt | generated 2026-11-21 | 12 domains ```
 ``` Needs DNS data mapped to the CIM Network_Resolution data model. ```
 | tstats summariesonly=false count min(_time) as first_seen max(_time) as last_seen
     from datamodel=Network_Resolution
-    where DNS.query IN (&quot;xiamenbank.com&quot;, &quot;*.xiamenbank.com&quot;, &quot;attijariwafabank.cn&quot;, &quot;*.attijariwafabank.cn&quot;, &quot;ubci.in&quot;, &quot;*.ubci.in&quot;, &quot;wifakepay.com&quot;, &quot;*.wifakepay.com&quot;, &quot;cannabissamenbank.ch&quot;, &quot;*.cannabissamenbank.ch&quot;, &quot;atbclientsupport.com&quot;, &quot;*.atbclientsupport.com&quot;, &quot;6x8147.xyz&quot;, &quot;*.6x8147.xyz&quot;, &quot;biat-bonuss.sbs&quot;, &quot;*.biat-bonuss.sbs&quot;, &quot;81472.my&quot;, &quot;*.81472.my&quot;, &quot;attijariwafabank.com.eg&quot;, &quot;*.attijariwafabank.com.eg&quot;, &quot;biat-quiltexpo.com&quot;, &quot;*.biat-quiltexpo.com&quot;)
+    where DNS.query IN (&quot;ooredoo-om.com&quot;, &quot;*.ooredoo-om.com&quot;, &quot;xiamenbank.com&quot;, &quot;*.xiamenbank.com&quot;, &quot;attijariwafabank.cn&quot;, &quot;*.attijariwafabank.cn&quot;, &quot;ubci.in&quot;, &quot;*.ubci.in&quot;, &quot;wifakepay.com&quot;, &quot;*.wifakepay.com&quot;, &quot;cannabissamenbank.ch&quot;, &quot;*.cannabissamenbank.ch&quot;, &quot;atbclientsupport.com&quot;, &quot;*.atbclientsupport.com&quot;, &quot;6x8147.xyz&quot;, &quot;*.6x8147.xyz&quot;, &quot;biat-bonuss.sbs&quot;, &quot;*.biat-bonuss.sbs&quot;, &quot;81472.my&quot;, &quot;*.81472.my&quot;, &quot;attijariwafabank.com.eg&quot;, &quot;*.attijariwafabank.com.eg&quot;, &quot;biat-quiltexpo.com&quot;, &quot;*.biat-quiltexpo.com&quot;)
     by DNS.src DNS.query
 | convert ctime(first_seen) ctime(last_seen)
 | sort - count
@@ -189,7 +190,7 @@ config case_sensitive = false
     <section aria-labelledby="health-title">
       <h2 id="health-title">Source health</h2>
       <p class="lede">What the latest run could reach. Free sources fail now and then; the watch carries on with the rest.</p>
-      <div class="table-wrap"><table class="sources"><thead><tr><th scope="col">Source</th><th scope="col">Status</th><th scope="col" class="num">Items</th><th scope="col">Note</th></tr></thead><tbody><tr><th scope="row">crt.sh</th><td class="st st-ok">ok</td><td class="num">0</td><td>8/67 queries failed (crt.sh is often overloaded)</td></tr><tr><th scope="row">openphish</th><td class="st st-ok">ok</td><td class="num">300</td><td></td></tr><tr><th scope="row">whoisds</th><td class="st st-ok">ok</td><td class="num">70,000</td><td>newly registered on 2026-11-19</td></tr><tr><th scope="row">urlhaus</th><td class="st st-ok">ok</td><td class="num">1,000</td><td></td></tr></tbody></table></div><p class="note">Last run checked 71,300 domains and URLs.</p>
+      <div class="table-wrap"><table class="sources"><thead><tr><th scope="col">Source</th><th scope="col">Status</th><th scope="col" class="num">Items</th><th scope="col">Note</th></tr></thead><tbody><tr><th scope="row">crt.sh</th><td class="st st-ok">ok</td><td class="num">0</td><td>8/67 queries failed (crt.sh is often overloaded)</td></tr><tr><th scope="row">openphish</th><td class="st st-ok">ok</td><td class="num">300</td><td></td></tr><tr><th scope="row">whoisds</th><td class="st st-ok">ok</td><td class="num">70,000</td><td>newly registered on 2026-11-20</td></tr><tr><th scope="row">urlhaus</th><td class="st st-ok">ok</td><td class="num">1,000</td><td></td></tr></tbody></table></div><p class="note">Last run checked 71,300 domains and URLs.</p>
     </section>
 
     <section id="coverage" aria-labelledby="coverage-title">
@@ -206,7 +207,7 @@ config case_sensitive = false
   </main>
 
   <footer>
-    <span>Built and maintained by <a href="https://rayenskhiri.online">Rayen Skhiri</a>. Open source under the MIT license. Page generated 2026-11-20 14:39 UTC.</span>
+    <span>Built and maintained by <a href="https://rayenskhiri.online">Rayen Skhiri</a>. Open source under the MIT license. Page generated 2026-11-21 13:59 UTC.</span>
   </footer>
 </div>
 <script>
