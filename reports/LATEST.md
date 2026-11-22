@@ -1,9 +1,9 @@
-# Maghreb Threat Watch | 2026-11-21
+# Maghreb Threat Watch | 2026-11-22
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**1 new suspicious domain:** 🟠 **1 medium**
+**1 new suspicious domain:** 🟡 **1 low**
 
 Checked 71,300 domains and URLs.
 
@@ -11,20 +11,23 @@ Checked 71,300 domains and URLs.
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 1016.9s | 8/67 queries failed (crt.sh is often overloaded) |
+| crt.sh | error | 0 | 1519.3s | time budget: 66/67 keywords searched, the rest rotate in tomorrow; 66/66 queries failed (crt.sh is often overloaded) |
 | openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 2.1s | newly registered on 2026-11-20 |
-| urlhaus | ok | 1,000 | 1.5s |  |
+| whoisds | ok | 70,000 | 5.3s | newly registered on 2026-11-21 |
+| urlhaus | ok | 1,000 | 1.2s |  |
 
 ## Most targeted today
 
-- Ooredoo (Tunisie and Algerie): 1
+- Maroc Telecom: 1
 
-## 🟠 Medium
+<details>
+<summary>🟡 Low confidence (1): weak signals worth a glance</summary>
 
 | Score | Domain | Brand | Why it was flagged | Seen in |
 |---:|---|---|---|---|
-| 50 | ooredoo-om[.]com | Ooredoo (Tunisie and Algerie) (TN,DZ) | exact match on 'ooredoo' in 'ooredoo' (+50) | whoisds |
+| 42 | iammai[.]top | Maroc Telecom (MA) | weak-affix match on 'iam' in 'iammai' (+22)<br>country hint ['ma'] (+10)<br>abused TLD .top (+10) | whoisds |
+
+</details>
 
 ## Hunt for these in your environment
 

@@ -1,14 +1,13 @@
 {
- "last_run_day": "2026-11-21",
+ "last_run_day": "2026-11-22",
  "domains_checked_last_run": 71300,
  "new_last_run": 1,
  "findings_30d": 13,
  "high_30d": 1,
- "runs": 32,
+ "runs": 33,
  "brands": 45,
  "countries": 3,
  "sources_ok": [
-  "crt.sh",
   "openphish",
   "urlhaus",
   "whoisds"
