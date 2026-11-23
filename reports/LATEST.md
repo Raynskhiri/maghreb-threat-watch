@@ -1,9 +1,9 @@
-# Maghreb Threat Watch | 2026-11-22
+# Maghreb Threat Watch | 2026-11-23
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**1 new suspicious domain:** 🟡 **1 low**
+**2 new suspicious domains:** 🟡 **2 low**
 
 Checked 71,300 domains and URLs.
 
@@ -11,21 +11,23 @@ Checked 71,300 domains and URLs.
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | error | 0 | 1519.3s | time budget: 66/67 keywords searched, the rest rotate in tomorrow; 66/66 queries failed (crt.sh is often overloaded) |
-| openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 5.3s | newly registered on 2026-11-21 |
-| urlhaus | ok | 1,000 | 1.2s |  |
+| crt.sh | ok | 0 | 1377.9s | 43/67 queries failed (crt.sh is often overloaded) |
+| openphish | ok | 300 | 0.1s |  |
+| whoisds | ok | 70,000 | 2.4s | newly registered on 2026-11-22 |
+| urlhaus | ok | 1,000 | 1.3s |  |
 
 ## Most targeted today
 
+- Amen Bank: 1
 - Maroc Telecom: 1
 
 <details>
-<summary>🟡 Low confidence (1): weak signals worth a glance</summary>
+<summary>🟡 Low confidence (2): weak signals worth a glance</summary>
 
 | Score | Domain | Brand | Why it was flagged | Seen in |
 |---:|---|---|---|---|
-| 42 | iammai[.]top | Maroc Telecom (MA) | weak-affix match on 'iam' in 'iammai' (+22)<br>country hint ['ma'] (+10)<br>abused TLD .top (+10) | whoisds |
+| 38 | amenback[.]com | Amen Bank (TN) | typo match on 'amenbank' in 'amenback' (+38) | whoisds |
+| 37 | iamfine[.]health | Maroc Telecom (MA) | weak-affix match on 'iam' in 'iamfine' (+22)<br>lure words ['fine'] (+15) | whoisds |
 
 </details>
 

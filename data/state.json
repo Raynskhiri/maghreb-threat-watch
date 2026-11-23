@@ -12,6 +12,12 @@
    "score": 63,
    "severity": "medium"
   },
+  "amenback.com": {
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23",
+   "score": 38,
+   "severity": "low"
+  },
   "api.attijariwafabank.com.eg": {
    "first_seen": "2026-10-31",
    "last_seen": "2026-11-05",
@@ -69,6 +75,12 @@
   "i-am-auth.com": {
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07",
+   "score": 37,
+   "severity": "low"
+  },
+  "iamfine.health": {
+   "first_seen": "2026-11-23",
+   "last_seen": "2026-11-23",
    "score": 37,
    "severity": "low"
   },
