@@ -1,5 +1,5 @@
 # Maghreb Threat Watch: suspected lookalike/phishing domains (medium and high)
-# Updated 2026-11-23 | rolling 30 days | verify before blocking
+# Updated 2026-11-24 | rolling 30 days | verify before blocking
 ooredoo-om.com
 xiamenbank.com
 attijariwafabank.cn
