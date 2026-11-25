@@ -72,6 +72,12 @@
    "score": 48,
    "severity": "medium"
   },
+  "ccabank.app": {
+   "first_seen": "2026-11-25",
+   "last_seen": "2026-11-25",
+   "score": 38,
+   "severity": "low"
+  },
   "i-am-auth.com": {
    "first_seen": "2026-11-07",
    "last_seen": "2026-11-07",

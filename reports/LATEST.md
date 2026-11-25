@@ -1,20 +1,33 @@
-# Maghreb Threat Watch | 2026-11-24
+# Maghreb Threat Watch | 2026-11-25
 
 Lookalike and phishing domains targeting North African banks, telecoms, postal
 services and government portals. Domains are defanged: `[.]` stands for a dot.
 
-**No new suspicious domains today.**
+**1 new suspicious domain:** 🟡 **1 low**
 
-Checked 71,300 domains and URLs.
+Checked 71,278 domains and URLs.
 
 ## Sources
 
 | Source | Status | Items | Time | Note |
 |---|---|---:|---:|---|
-| crt.sh | ok | 0 | 1059.4s | 11/67 queries failed (crt.sh is often overloaded) |
+| crt.sh | ok | 0 | 1403.7s | 12/67 queries failed (crt.sh is often overloaded) |
 | openphish | ok | 300 | 0.0s |  |
-| whoisds | ok | 70,000 | 19.8s | newly registered on 2026-11-23 |
-| urlhaus | ok | 1,000 | 1.2s |  |
+| whoisds | ok | 70,000 | 2.5s | newly registered on 2026-11-24 |
+| urlhaus | ok | 978 | 1.2s |  |
+
+## Most targeted today
+
+- CPA (Credit Populaire d'Algerie): 1
+
+<details>
+<summary>🟡 Low confidence (1): weak signals worth a glance</summary>
+
+| Score | Domain | Brand | Why it was flagged | Seen in |
+|---:|---|---|---|---|
+| 38 | ccabank[.]app | CPA (Credit Populaire d'Algerie) (DZ) | typo match on 'cpabank' in 'ccabank' (+38) | whoisds |
+
+</details>
 
 ## Hunt for these in your environment
 
