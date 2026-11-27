@@ -102,9 +102,21 @@
    "score": 50,
    "severity": "medium"
   },
+  "sms-stb.com": {
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27",
+   "score": 40,
+   "severity": "low"
+  },
   "ubci.in": {
    "first_seen": "2026-11-16",
    "last_seen": "2026-11-16",
+   "score": 50,
+   "severity": "medium"
+  },
+  "wifak-agency.com": {
+   "first_seen": "2026-11-27",
+   "last_seen": "2026-11-27",
    "score": 50,
    "severity": "medium"
   },
