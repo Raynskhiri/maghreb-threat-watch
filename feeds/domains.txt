@@ -1,5 +1,6 @@
 # Maghreb Threat Watch: suspected lookalike/phishing domains (medium and high)
-# Updated 2026-11-27 | rolling 30 days | verify before blocking
+# Updated 2026-11-28 | rolling 30 days | verify before blocking
+m8147.vip
 wifak-agency.com
 ooredoo-om.com
 xiamenbank.com
